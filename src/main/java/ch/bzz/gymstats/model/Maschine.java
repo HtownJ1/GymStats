@@ -6,6 +6,10 @@ public class Maschine {
     private String name;
     private String muskel;
 
+    public Maschine() {
+        super();
+    }
+
     public Maschine(String maschineUUID, String name, String muskel) {
         this.maschineUUID = maschineUUID;
         this.name = name;
