@@ -1,9 +1,5 @@
 package ch.bzz.gymstats.service;
 
-import ch.bzz.gymstats.model.Maschine;
-import ch.bzz.gymstats.model.User;
-import ch.bzz.gymstats.model.Wiederholung;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
