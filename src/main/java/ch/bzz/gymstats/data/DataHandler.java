@@ -100,6 +100,21 @@ public class DataHandler {
     }
 
     /**
+     * reads a Uebung by its uuid
+     * @param uebungUUID
+     * @return the Uebung (null=not found)
+     */
+    public Uebung readUebungByUUID(String uebungUUID) {
+        Uebung uebung = null;
+        for (Uebung entry : getUebungList()) {
+            if (entry.getUebungUUID().equals(uebungUUID)) {
+                uebung = entry;
+            }
+        }
+        return uebung;
+    }
+
+    /**
      * reads the Maschine from the JSON-file
      */
     private void readMaschineJSON() {

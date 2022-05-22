@@ -34,12 +34,12 @@ public class UebungService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readUebung(
-            @QueryParam("uuid") String wiederholungUUID
+            @QueryParam("uuid") String uebungUUID
     ){
-        Wiederholung wiederholung =DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
+        Uebung uebung =DataHandler.getInstance().readUebungByUUID(uebungUUID);
         return Response
                 .status(200)
-                .entity(wiederholung)
+                .entity(uebung)
                 .build();
     }
 
