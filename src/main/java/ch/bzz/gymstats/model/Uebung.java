@@ -1,49 +1,104 @@
 package ch.bzz.gymstats.model;
 
+import ch.bzz.gymstats.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Uebung {
 
     private String uebungUUID;
-    private List<Wiederholung> wiederholungListe;
+    private List<String> wiederholungListe;
+    @JsonIgnore
     private Maschine maschine;
     private String uebungName;
 
-    public Uebung(String uebungUUID, List<Wiederholung> wiederholungListe, Maschine maschine, String uebungName) {
-        this.uebungUUID = uebungUUID;
-        this.wiederholungListe = wiederholungListe;
-        this.maschine = maschine;
-        this.uebungName = uebungName;
+
+    @JsonProperty("maschine")
+    public String getMaschineUUID(){
+        if(maschine !=null){
+            return maschine.getMaschineUUID();
+        }
+        else{
+            return null;
+        }
     }
 
+
+    public void setMaschineUUID(String maschineUUID){
+        setMaschine(DataHandler.getInstance().readMaschineByUUID(maschineUUID));
+    }
+
+    /**
+     * zurückgibt uebungUUID
+     *
+     * @return Wert von uebungUUID
+     */
     public String getUebungUUID() {
         return uebungUUID;
     }
 
+    /**
+     * setzt uebungUUID
+     *
+     * @param uebungUUID der Wert zu setzen
+     */
     public void setUebungUUID(String uebungUUID) {
         this.uebungUUID = uebungUUID;
     }
 
-    public List<Wiederholung> getWiederholungListe() {
+    /**
+     * zurückgibt wiederholungListe
+     *
+     * @return Wert von wiederholungListe
+     */
+    public List<String> getWiederholungListe() {
         return wiederholungListe;
     }
 
-    public void setWiederholungListe(List<Wiederholung> wiederholungListe) {
+    /**
+     * setzt wiederholungListe
+     *
+     * @param wiederholungListe der Wert zu setzen
+     */
+    public void setWiederholungListe(List<String> wiederholungListe) {
         this.wiederholungListe = wiederholungListe;
     }
 
+    /**
+     * zurückgibt maschine
+     *
+     * @return Wert von maschine
+     */
     public Maschine getMaschine() {
         return maschine;
     }
 
+    /**
+     * setzt maschine
+     *
+     * @param maschine der Wert zu setzen
+     */
     public void setMaschine(Maschine maschine) {
         this.maschine = maschine;
     }
 
+    /**
+     * zurückgibt uebungName
+     *
+     * @return Wert von uebungName
+     */
     public String getUebungName() {
         return uebungName;
     }
 
+    /**
+     * setzt uebungName
+     *
+     * @param uebungName der Wert zu setzen
+     */
     public void setUebungName(String uebungName) {
         this.uebungName = uebungName;
     }

@@ -2,7 +2,8 @@ package ch.bzz.gymstats.service;
 
 
 import ch.bzz.gymstats.data.DataHandler;
-import ch.bzz.gymstats.model.Maschine;
+import ch.bzz.gymstats.model.Uebung;
+import ch.bzz.gymstats.model.Wiederholung;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,36 +14,33 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * maschine service
+ * uebung service
  */
-@Path("maschine")
-public class MaschineService {
+@Path("uebung")
+public class UebungService {
 
-    /**
-     * returns a list of all maschinen
-     * @return  message
-     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listMaschinen() {
-        List<Maschine> maschineList = DataHandler.getInstance().readAllMaschinen();
+    public Response listUebung(){
+        List<Uebung> uebungList = DataHandler.getInstance().readAllUebungen();
         return Response
                 .status(200)
-                .entity(maschineList)
+                .entity(uebungList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readMaschine(
-            @QueryParam("uuid") String maschineUUID
-    ) {
-        Maschine maschine = DataHandler.getInstance().readMaschineByUUID(maschineUUID);
+    public Response readUebung(
+            @QueryParam("uuid") String wiederholungUUID
+    ){
+        Wiederholung wiederholung =DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
         return Response
                 .status(200)
-                .entity(maschine)
+                .entity(wiederholung)
                 .build();
     }
+
 }

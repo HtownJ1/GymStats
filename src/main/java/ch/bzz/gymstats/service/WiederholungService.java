@@ -2,7 +2,7 @@ package ch.bzz.gymstats.service;
 
 
 import ch.bzz.gymstats.data.DataHandler;
-import ch.bzz.gymstats.model.Maschine;
+import ch.bzz.gymstats.model.Wiederholung;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,36 +13,33 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * maschine service
+ * wiederholung service
  */
-@Path("maschine")
-public class MaschineService {
+@Path("wiederholung")
+public class WiederholungService {
 
-    /**
-     * returns a list of all maschinen
-     * @return  message
-     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listMaschinen() {
-        List<Maschine> maschineList = DataHandler.getInstance().readAllMaschinen();
+    public Response listWiederholungen(){
+        List<Wiederholung> wiederholungList = DataHandler.getInstance().readAllWiederholungen();
         return Response
                 .status(200)
-                .entity(maschineList)
+                .entity(wiederholungList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readMaschine(
-            @QueryParam("uuid") String maschineUUID
-    ) {
-        Maschine maschine = DataHandler.getInstance().readMaschineByUUID(maschineUUID);
+    public Response readBook(
+            @QueryParam("uuid") String wiederholungUUID
+    ){
+        Wiederholung wiederholung =DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
         return Response
                 .status(200)
-                .entity(maschine)
+                .entity(wiederholung)
                 .build();
     }
+
 }

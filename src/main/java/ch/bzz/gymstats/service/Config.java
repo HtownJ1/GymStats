@@ -33,6 +33,8 @@ public class Config extends Application {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(TestService.class);
         providers.add(MaschineService.class);
+        providers.add(WiederholungService.class);
+        providers.add(UebungService.class);
         return providers;
     }
 
