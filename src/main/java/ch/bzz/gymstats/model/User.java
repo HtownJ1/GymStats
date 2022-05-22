@@ -1,5 +1,8 @@
 package ch.bzz.gymstats.model;
 
+/**
+ * a user class
+ */
 public class User {
 
     private String userUUID;

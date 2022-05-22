@@ -1,0 +1,14 @@
+[
+    {
+        "wiederholungUUID": "827c4a28-0497-4f3b-9ee5-fe6165701d06",
+        "anzahlWiederholungen": "2",
+        "gewicht": "45",
+        "datum": "01/01/2020"
+    },
+    {
+        "wiederholungUUID": "64f71023-b909-4033-97d6-6132d586f771",
+        "anzahlWiederholungen": "3",
+        "gewicht": "34",
+        "datum": "01/01/2020"
+    }
+]

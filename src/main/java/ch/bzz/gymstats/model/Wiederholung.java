@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
+/**
+ * wiederholung with the weight and reps.
+ */
 public class Wiederholung {
 
     private String wiederholungUUID;

@@ -13,14 +13,15 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * maschine service
+ * maschine service for reading maschinen
  */
 @Path("maschine")
 public class MaschineService {
 
     /**
      * returns a list of all maschinen
-     * @return  message
+     *
+     * @return maschinen as JSON
      */
     @GET
     @Path("list")
@@ -33,6 +34,12 @@ public class MaschineService {
                 .build();
     }
 
+    /**
+     * reads a maschine identified by the uuid
+     *
+     * @param maschineUUID
+     * @return maschine
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

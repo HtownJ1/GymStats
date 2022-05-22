@@ -1,5 +1,8 @@
 package ch.bzz.gymstats.model;
 
+/**
+ * Maschine with the the name and the muscle that it's training
+ */
 public class Maschine {
 
     private String maschineUUID;

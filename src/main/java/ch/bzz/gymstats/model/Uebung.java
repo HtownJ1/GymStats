@@ -4,9 +4,11 @@ import ch.bzz.gymstats.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Uebung with the name of the uebung and with the stats of each rep.
+ */
 public class Uebung {
 
     private String uebungUUID;
@@ -17,17 +19,16 @@ public class Uebung {
 
 
     @JsonProperty("maschine")
-    public String getMaschineUUID(){
-        if(maschine !=null){
+    public String getMaschineUUID() {
+        if (maschine != null) {
             return maschine.getMaschineUUID();
-        }
-        else{
+        } else {
             return null;
         }
     }
 
 
-    public void setMaschineUUID(String maschineUUID){
+    public void setMaschineUUID(String maschineUUID) {
         setMaschine(DataHandler.getInstance().readMaschineByUUID(maschineUUID));
     }
 

@@ -1,0 +1,12 @@
+[
+    {
+        "maschineUUID": "d795f4f1-77c6-4d3c-b71a-c04949f96794",
+        "name": "Glute Spreader",
+        "muskel": "bizeps"
+    },
+    {
+        "maschineUUID": "a8eb64ff-9615-4cca-b154-cb5556836940",
+        "name": "Lat Spreader",
+        "muskel": "trizeps"
+    }
+]

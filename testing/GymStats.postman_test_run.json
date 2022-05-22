@@ -1,0 +1,376 @@
+{
+	"id": "3351dad6-8927-4a13-bfce-dc827026181c",
+	"name": "GymStats",
+	"timestamp": "2022-05-22T23:32:56.793Z",
+	"collection_id": "2c4d3eef-46f9-422d-b376-c3f075b908bb",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 18,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1054b38c-02af-4224-ad6c-3a782e57128a",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/GymStats-1.0/resource/test/test",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "e38b7d25-13d5-4879-a2b3-1427b560ae49",
+			"name": "1.0 list all wiederholungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
+			"time": 48,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				48
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "77db8475-ba62-4afc-b4c7-ef76ba6fffff",
+			"name": "1.1 read wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d06",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "558c8aeb-326b-4305-8058-923f3544d0eb",
+			"name": "1.2 read wiederholung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		},
+		{
+			"id": "645f0b79-30eb-4e9d-9365-17c7ab5d93e2",
+			"name": "2.0 list all maschinen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "a5673341-b528-4776-8286-24214ce1b876",
+			"name": "2.1 read maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d92f1b43-2fef-44a6-a925-87134fe141e4",
+			"name": "2.2 read maschine not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "a067facc-2c5c-4570-a8ca-ea16023575a2",
+			"name": "3.0 list all uebungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "22f48fa4-d091-4661-8e66-119402961d65",
+			"name": "3.1 read uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 92,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				92
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "af72b10e-1edc-44bd-9baf-ace5a408c312",
+			"name": "3.2 read uebung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 42,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 332,
+	"collection": {
+		"requests": [
+			{
+				"id": "1054b38c-02af-4224-ad6c-3a782e57128a",
+				"method": "GET"
+			},
+			{
+				"id": "e38b7d25-13d5-4879-a2b3-1427b560ae49",
+				"method": "GET"
+			},
+			{
+				"id": "77db8475-ba62-4afc-b4c7-ef76ba6fffff",
+				"method": "GET"
+			},
+			{
+				"id": "558c8aeb-326b-4305-8058-923f3544d0eb",
+				"method": "GET"
+			},
+			{
+				"id": "645f0b79-30eb-4e9d-9365-17c7ab5d93e2",
+				"method": "GET"
+			},
+			{
+				"id": "a5673341-b528-4776-8286-24214ce1b876",
+				"method": "GET"
+			},
+			{
+				"id": "d92f1b43-2fef-44a6-a925-87134fe141e4",
+				"method": "GET"
+			},
+			{
+				"id": "a067facc-2c5c-4570-a8ca-ea16023575a2",
+				"method": "GET"
+			},
+			{
+				"id": "22f48fa4-d091-4661-8e66-119402961d65",
+				"method": "GET"
+			},
+			{
+				"id": "af72b10e-1edc-44bd-9baf-ace5a408c312",
+				"method": "GET"
+			}
+		]
+	}
+}

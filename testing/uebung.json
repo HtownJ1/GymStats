@@ -1,0 +1,14 @@
+[
+    {
+        "uebungUUID": "d795f4f1-77c6-4d3c-b71a-c04949f96794",
+        "wiederholungListe": ["64f71023-b909-4033-97d6-6132d586f771","827c4a28-0497-4f3b-9ee5-fe6165701d06"],
+        "maschine": "a8eb64ff-9615-4cca-b154-cb5556836940",
+        "uebungName": "spreader"
+    },
+    {
+        "uebungUUID": "d795f4f1-77c6-4d3c-b71a-c04949f96795",
+        "wiederholungListe": ["64f71023-b909-4033-97d6-6132d586f771","827c4a28-0497-4f3b-9ee5-fe6165701d06"],
+        "maschine": "d795f4f1-77c6-4d3c-b71a-c04949f96794",
+        "uebungName": "maker"
+    }
+]

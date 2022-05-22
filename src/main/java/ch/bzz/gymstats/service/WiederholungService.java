@@ -13,15 +13,20 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * wiederholung service
+ * wiederholung service for reading wiederholungen
  */
 @Path("wiederholung")
 public class WiederholungService {
 
+    /**
+     * reads a list of all wiederholungen
+     *
+     * @return wiederholungen as JSON
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listWiederholungen(){
+    public Response listWiederholungen() {
         List<Wiederholung> wiederholungList = DataHandler.getInstance().readAllWiederholungen();
         return Response
                 .status(200)
@@ -29,13 +34,19 @@ public class WiederholungService {
                 .build();
     }
 
+    /**
+     * reads a wiederholung identified by the uuid
+     *
+     * @param wiederholungUUID
+     * @return wiederholung
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBook(
             @QueryParam("uuid") String wiederholungUUID
-    ){
-        Wiederholung wiederholung =DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
+    ) {
+        Wiederholung wiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
         return Response
                 .status(200)
                 .entity(wiederholung)
