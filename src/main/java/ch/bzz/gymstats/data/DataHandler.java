@@ -195,6 +195,62 @@ public class DataHandler {
         }
     }
 
+    public  void insertWiederholung(Wiederholung wiederholung) {
+        getWiederholungList().add(wiederholung);
+        writeWiederholungJSON();
+    }
+
+    public void updateWiederholung() {
+        writeWiederholungJSON();
+    }
+
+    public boolean deleteWiederholung(String wiederholungUUID) {
+        Wiederholung wiederholung = readWiederholungByUUID(wiederholungUUID);
+        if (wiederholung != null) {
+            getWiederholungList().remove(wiederholung);
+            writeWiederholungJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public  void insertUebung(Uebung uebung) {
+        getUebungList().add(uebung);
+        writeUebungJSON();
+    }
+
+    public void updateUebung() {
+        writeUebungJSON();
+    }
+
+    public boolean deleteUebung(String uebungUUID) {
+        Uebung uebung = readUebungByUUID(uebungUUID);
+        if (uebung != null) {
+            getUebungList().remove(uebung);
+            writeUebungJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void writeWiederholungJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String wiederholungPath = Config.getProperty("wiederholungJSON");
+        try {
+            fileOutputStream = new FileOutputStream(wiederholungPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getWiederholungList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     private void writeMaschineJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -202,11 +258,27 @@ public class DataHandler {
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String bookPath = Config.getProperty("maschineJSON");
+        String maschinePath = Config.getProperty("maschineJSON");
         try {
-            fileOutputStream = new FileOutputStream(bookPath);
+            fileOutputStream = new FileOutputStream(maschinePath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             objectWriter.writeValue(fileWriter, getInstance().getMaschineList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void writeUebungJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String uebungPath = Config.getProperty("uebungJSON");
+        try {
+            fileOutputStream = new FileOutputStream(uebungPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getUebungList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

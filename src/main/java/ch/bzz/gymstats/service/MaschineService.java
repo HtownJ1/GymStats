@@ -52,7 +52,7 @@ public class MaschineService {
                 .build();
     }
 
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createMaschine(
@@ -73,7 +73,7 @@ public class MaschineService {
                 .build();
     }
 
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateMaschine(

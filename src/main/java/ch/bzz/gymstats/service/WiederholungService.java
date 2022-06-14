@@ -2,15 +2,15 @@ package ch.bzz.gymstats.service;
 
 
 import ch.bzz.gymstats.data.DataHandler;
+import ch.bzz.gymstats.model.Maschine;
 import ch.bzz.gymstats.model.Wiederholung;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * wiederholung service for reading wiederholungen
@@ -51,6 +51,86 @@ public class WiederholungService {
                 .status(200)
                 .entity(wiederholung)
                 .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createWiederholung(
+            @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
+            @FormParam("gewicht") Integer gewicht,
+            @FormParam("datum") Date datum
+    ) {
+        Wiederholung wiederholung = new Wiederholung();
+        wiederholung.setWiederholungUUID(UUID.randomUUID().toString());
+        setAttributes(
+                wiederholung,
+                anzahlWiederholungen,
+                gewicht,
+                datum
+        );
+        DataHandler.getInstance().insertWiederholung(wiederholung);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateWiederholung(
+            @QueryParam("wiederholungUUID") String wiederholungUUID,
+            @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
+            @FormParam("gewicht") Integer gewicht,
+            @FormParam("datum") Date datum
+    ) {
+        int httpStatus = 200;
+        Wiederholung wiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
+        if (wiederholung != null) {
+            setAttributes(
+                    wiederholung,
+                    anzahlWiederholungen,
+                    gewicht,
+                    datum
+            );
+
+            DataHandler.getInstance().updateWiederholung();
+        } else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteWiederholung(
+            @QueryParam("wiederholungUUID") String wiederholungUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.getInstance().deleteWiederholung(wiederholungUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    private void setAttributes(
+            Wiederholung wiederholung,
+            Integer anzahlWiederholungen,
+            Integer gewicht,
+            Date datum
+
+    ) {
+        wiederholung.setAnzahlWiederholungen(anzahlWiederholungen);
+        wiederholung.setGewicht(gewicht);
+        wiederholung.setDatum(datum);
     }
 
 }
