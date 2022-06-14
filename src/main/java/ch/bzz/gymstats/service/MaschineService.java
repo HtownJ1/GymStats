@@ -4,19 +4,18 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Maschine;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * maschine service for reading maschinen
  */
 @Path("maschine")
 public class MaschineService {
+
 
     /**
      * returns a list of all maschinen
@@ -52,4 +51,80 @@ public class MaschineService {
                 .entity(maschine)
                 .build();
     }
+
+    @PUT
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createMaschine(
+            @FormParam("name") String name,
+            @FormParam("muskel") String muskel
+    ) {
+        Maschine maschine = new Maschine();
+        maschine.setMaschineUUID(UUID.randomUUID().toString());
+        setAttributes(
+                maschine,
+                name,
+                muskel
+        );
+        DataHandler.getInstance().insertMaschine(maschine);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    @POST
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateMaschine(
+            @FormParam("maschineUUID") String maschineUUID,
+            @FormParam("name") String name,
+            @FormParam("muskel") String muskel
+    ) {
+        int httpStatus = 200;
+        Maschine maschine = DataHandler.getInstance().readMaschineByUUID(maschineUUID);
+        if (maschine != null) {
+            setAttributes(
+                    maschine,
+                    name,
+                    muskel
+            );
+
+            DataHandler.getInstance().updateMaschine();
+        } else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteMaschine(
+            @QueryParam("maschineUUID") String maschineUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.getInstance().deleteMaschine(maschineUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+
+    private void setAttributes(
+            Maschine maschine,
+            String name,
+            String muskel
+
+    ) {
+        maschine.setName(name);
+        maschine.setMuskel(muskel);
+    }
+
 }

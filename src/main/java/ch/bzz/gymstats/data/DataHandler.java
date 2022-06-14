@@ -4,9 +4,12 @@ import ch.bzz.gymstats.model.Maschine;
 import ch.bzz.gymstats.model.Uebung;
 import ch.bzz.gymstats.model.Wiederholung;
 import ch.bzz.gymstats.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -167,6 +170,43 @@ public class DataHandler {
             for (Uebung uebung : uebungen) {
                 getUebungList().add(uebung);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public  void insertMaschine(Maschine maschine) {
+        getMaschineList().add(maschine);
+        writeMaschineJSON();
+    }
+
+    public void updateMaschine() {
+        writeMaschineJSON();
+    }
+
+    public boolean deleteMaschine(String maschineUUID) {
+        Maschine maschine = readMaschineByUUID(maschineUUID);
+        if (maschine != null) {
+            getMaschineList().remove(maschine);
+            writeMaschineJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private void writeMaschineJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("maschineJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getMaschineList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
