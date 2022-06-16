@@ -4,11 +4,13 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Maschine;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * maschine service for reading maschinen
@@ -43,6 +45,8 @@ public class MaschineService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readMaschine(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String maschineUUID
     ) {
         Maschine maschine = DataHandler.getInstance().readMaschineByUUID(maschineUUID);
@@ -56,16 +60,8 @@ public class MaschineService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createMaschine(
-            @FormParam("name") String name,
-            @FormParam("muskel") String muskel
+            @Valid @BeanParam Maschine maschine
     ) {
-        Maschine maschine = new Maschine();
-        maschine.setMaschineUUID(UUID.randomUUID().toString());
-        setAttributes(
-                maschine,
-                name,
-                muskel
-        );
         DataHandler.getInstance().insertMaschine(maschine);
         return Response
                 .status(200)
@@ -77,19 +73,13 @@ public class MaschineService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateMaschine(
-            @FormParam("maschineUUID") String maschineUUID,
-            @FormParam("name") String name,
-            @FormParam("muskel") String muskel
+            @Valid @BeanParam Maschine maschine
     ) {
         int httpStatus = 200;
-        Maschine maschine = DataHandler.getInstance().readMaschineByUUID(maschineUUID);
+        Maschine oldMaschine = DataHandler.getInstance().readMaschineByUUID(maschine.getMaschineUUID());
         if (maschine != null) {
-            setAttributes(
-                    maschine,
-                    name,
-                    muskel
-            );
-
+            oldMaschine.setMuskel(maschine.getMuskel());
+            oldMaschine.setName(maschine.getName());
             DataHandler.getInstance().updateMaschine();
         } else {
             httpStatus = 410;
@@ -104,6 +94,8 @@ public class MaschineService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteMaschine(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("maschineUUID") String maschineUUID
     ) {
         int httpStatus = 200;
@@ -114,17 +106,6 @@ public class MaschineService {
                 .status(httpStatus)
                 .entity("")
                 .build();
-    }
-
-
-    private void setAttributes(
-            Maschine maschine,
-            String name,
-            String muskel
-
-    ) {
-        maschine.setName(name);
-        maschine.setMuskel(muskel);
     }
 
 }

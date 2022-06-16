@@ -4,6 +4,9 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Wiederholung;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -11,7 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * wiederholung service for reading wiederholungen
@@ -45,6 +47,8 @@ public class WiederholungService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBook(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String wiederholungUUID
     ) {
         Wiederholung wiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
@@ -58,19 +62,12 @@ public class WiederholungService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createWiederholung(
-            @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
-            @FormParam("gewicht") Integer gewicht,
+            @Valid @BeanParam Wiederholung wiederholung,
+            @NotEmpty
             @FormParam("datum") String datum
     ) throws ParseException {
-        Wiederholung wiederholung = new Wiederholung();
-        wiederholung.setWiederholungUUID(UUID.randomUUID().toString());
         Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
-        setAttributes(
-                wiederholung,
-                anzahlWiederholungen,
-                gewicht,
-                date
-        );
+        wiederholung.setDatum(date);
         DataHandler.getInstance().insertWiederholung(wiederholung);
         return Response
                 .status(200)
@@ -82,22 +79,17 @@ public class WiederholungService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateWiederholung(
-            @QueryParam("wiederholungUUID") String wiederholungUUID,
-            @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
-            @FormParam("gewicht") Integer gewicht,
+            @Valid @BeanParam Wiederholung wiederholung,
+            @NotEmpty
             @FormParam("datum") String datum
     ) throws ParseException {
         int httpStatus = 200;
-        Wiederholung wiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
+        Wiederholung oldWiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholung.getWiederholungUUID());
         if (wiederholung != null) {
             Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
-            setAttributes(
-                    wiederholung,
-                    anzahlWiederholungen,
-                    gewicht,
-                    date
-            );
-
+            oldWiederholung.setDatum(date);
+            oldWiederholung.setGewicht(wiederholung.getGewicht());
+            oldWiederholung.setAnzahlWiederholungen(wiederholung.getAnzahlWiederholungen());
             DataHandler.getInstance().updateWiederholung();
         } else {
             httpStatus = 410;
@@ -112,6 +104,8 @@ public class WiederholungService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteWiederholung(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("wiederholungUUID") String wiederholungUUID
     ) {
         int httpStatus = 200;
@@ -122,18 +116,6 @@ public class WiederholungService {
                 .status(httpStatus)
                 .entity("")
                 .build();
-    }
-
-    private void setAttributes(
-            Wiederholung wiederholung,
-            Integer anzahlWiederholungen,
-            Integer gewicht,
-            Date datum
-
-    ) {
-        wiederholung.setAnzahlWiederholungen(anzahlWiederholungen);
-        wiederholung.setGewicht(gewicht);
-        wiederholung.setDatum(datum);
     }
 
 }

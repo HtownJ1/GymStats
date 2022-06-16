@@ -4,11 +4,13 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Uebung;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * uebung service for reading uebungen
@@ -42,6 +44,8 @@ public class UebungService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readUebung(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String uebungUUID
     ) {
         Uebung uebung = DataHandler.getInstance().readUebungByUUID(uebungUUID);
@@ -55,18 +59,11 @@ public class UebungService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createUebung(
-            @FormParam("wiederholungListe") List<String> wiederholungListe,
-            @FormParam("maschine") String maschine,
-            @FormParam("uebungName") String uebungName
+            @Valid @BeanParam Uebung uebung,
+            @NotEmpty
+            @FormParam("maschine") String maschine
     ) {
-        Uebung uebung = new Uebung();
-        uebung.setUebungUUID(UUID.randomUUID().toString());
-        setAttributes(
-                uebung,
-                wiederholungListe,
-                maschine,
-                uebungName
-        );
+        uebung.setMaschineUUID(maschine);
         DataHandler.getInstance().insertUebung(uebung);
         return Response
                 .status(200)
@@ -78,20 +75,16 @@ public class UebungService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateUebung(
-            @QueryParam("uebungUUID") String uebungUUID,
-            @FormParam("wiederholungListe") List<String> wiederholungListe,
-            @FormParam("maschine") String maschine,
-            @FormParam("uebungName") String uebungName
+            @Valid @BeanParam Uebung uebung,
+            @NotEmpty
+            @FormParam("maschine") String maschine
     ) {
         int httpStatus = 200;
-        Uebung uebung = DataHandler.getInstance().readUebungByUUID(uebungUUID);
+        Uebung oldUebung = DataHandler.getInstance().readUebungByUUID(uebung.getUebungUUID());
         if (uebung != null) {
-            setAttributes(
-                    uebung,
-                    wiederholungListe,
-                    maschine,
-                    uebungName
-            );
+            oldUebung.setMaschineUUID(maschine);
+            oldUebung.setUebungName(uebung.getUebungName());
+            oldUebung.setWiederholungListe(uebung.getWiederholungListe());
 
             DataHandler.getInstance().updateUebung();
         } else {
@@ -107,6 +100,8 @@ public class UebungService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteUebung(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uebungUUID") String uebungUUID
     ) {
         int httpStatus = 200;
@@ -117,18 +112,6 @@ public class UebungService {
                 .status(httpStatus)
                 .entity("")
                 .build();
-    }
-
-    private void setAttributes(
-            Uebung uebung,
-            List<String> wiederholungListe,
-            String maschine,
-            String uebungName
-
-    ) {
-        uebung.setWiederholungListe(wiederholungListe);
-        uebung.setMaschineUUID(maschine);
-        uebung.setUebungName(uebungName);
     }
 
 }

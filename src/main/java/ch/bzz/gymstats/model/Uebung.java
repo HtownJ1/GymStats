@@ -4,6 +4,11 @@ import ch.bzz.gymstats.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.util.List;
 
 /**
@@ -11,10 +16,20 @@ import java.util.List;
  */
 public class Uebung {
 
+    @FormParam("wiederholungUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String uebungUUID;
+
+    @FormParam("wiederholungListe")
+    @NotNull
     private List<String> wiederholungListe;
+
     @JsonIgnore
     private Maschine maschine;
+
+    @FormParam("uebungName")
+    @NotEmpty
+    @Size(min=4, max=40)
     private String uebungName;
 
 
