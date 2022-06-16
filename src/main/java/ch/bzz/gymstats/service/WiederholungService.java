@@ -2,12 +2,13 @@ package ch.bzz.gymstats.service;
 
 
 import ch.bzz.gymstats.data.DataHandler;
-import ch.bzz.gymstats.model.Maschine;
 import ch.bzz.gymstats.model.Wiederholung;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -59,15 +60,16 @@ public class WiederholungService {
     public Response createWiederholung(
             @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
             @FormParam("gewicht") Integer gewicht,
-            @FormParam("datum") Date datum
-    ) {
+            @FormParam("datum") String datum
+    ) throws ParseException {
         Wiederholung wiederholung = new Wiederholung();
         wiederholung.setWiederholungUUID(UUID.randomUUID().toString());
+        Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
         setAttributes(
                 wiederholung,
                 anzahlWiederholungen,
                 gewicht,
-                datum
+                date
         );
         DataHandler.getInstance().insertWiederholung(wiederholung);
         return Response
@@ -83,16 +85,17 @@ public class WiederholungService {
             @QueryParam("wiederholungUUID") String wiederholungUUID,
             @FormParam("anzahlWiederholungen") Integer anzahlWiederholungen,
             @FormParam("gewicht") Integer gewicht,
-            @FormParam("datum") Date datum
-    ) {
+            @FormParam("datum") String datum
+    ) throws ParseException {
         int httpStatus = 200;
         Wiederholung wiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholungUUID);
         if (wiederholung != null) {
+            Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
             setAttributes(
                     wiederholung,
                     anzahlWiederholungen,
                     gewicht,
-                    datum
+                    date
             );
 
             DataHandler.getInstance().updateWiederholung();

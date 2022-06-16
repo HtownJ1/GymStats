@@ -2,14 +2,11 @@ package ch.bzz.gymstats.service;
 
 
 import ch.bzz.gymstats.data.DataHandler;
-import ch.bzz.gymstats.model.Maschine;
 import ch.bzz.gymstats.model.Uebung;
-import ch.bzz.gymstats.model.Wiederholung;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
