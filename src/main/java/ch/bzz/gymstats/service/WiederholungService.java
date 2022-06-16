@@ -46,7 +46,7 @@ public class WiederholungService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBook(
+    public Response readWiederholung(
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String wiederholungUUID
@@ -62,12 +62,8 @@ public class WiederholungService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createWiederholung(
-            @Valid @BeanParam Wiederholung wiederholung,
-            @NotEmpty
-            @FormParam("datum") String datum
-    ) throws ParseException {
-        Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
-        wiederholung.setDatum(date);
+            @Valid @BeanParam Wiederholung wiederholung
+    ) {
         DataHandler.getInstance().insertWiederholung(wiederholung);
         return Response
                 .status(200)
@@ -79,15 +75,12 @@ public class WiederholungService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateWiederholung(
-            @Valid @BeanParam Wiederholung wiederholung,
-            @NotEmpty
-            @FormParam("datum") String datum
-    ) throws ParseException {
+            @Valid @BeanParam Wiederholung wiederholung
+    ) {
         int httpStatus = 200;
         Wiederholung oldWiederholung = DataHandler.getInstance().readWiederholungByUUID(wiederholung.getWiederholungUUID());
         if (wiederholung != null) {
-            Date date =new SimpleDateFormat("dd/MM/yyyy").parse(datum);
-            oldWiederholung.setDatum(date);
+            oldWiederholung.setDatum(wiederholung.getDatum());
             oldWiederholung.setGewicht(wiederholung.getGewicht());
             oldWiederholung.setAnzahlWiederholungen(wiederholung.getAnzahlWiederholungen());
             DataHandler.getInstance().updateWiederholung();

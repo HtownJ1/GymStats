@@ -6,12 +6,908 @@
 	},
 	"item": [
 		{
-			"name": "0.1 Testservice",
+			"name": "Maschine",
+			"item": [
+				{
+					"name": "list all maschinen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read maschine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96794"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read maschine not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is undefined\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96790"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create maschine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "maschineUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96798",
+									"type": "text"
+								},
+								{
+									"key": "muskel",
+									"value": "Trizeps",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "DownPress",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update maschine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "maschineUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96798",
+									"type": "text"
+								},
+								{
+									"key": "muskel",
+									"value": "Panzer",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "DownPress",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete maschine",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96798",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"maschine",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "maschineUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96798"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wiederholung",
+			"item": [
+				{
+					"name": "list all wiederholungen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read wiederholung not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is undefined\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "827c4a28-0497-4f3b-9ee5-fe6165701d0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read wiederholung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "827c4a28-0497-4f3b-9ee5-fe6165701d06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create wiederholung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "datum",
+									"value": "01/01/2020",
+									"type": "text"
+								},
+								{
+									"key": "wiederholungUUID",
+									"value": "827c4a28-0497-4f3b-9ee5-fe6165701d05",
+									"type": "text"
+								},
+								{
+									"key": "anzahlWiederholungen",
+									"value": "69",
+									"type": "text"
+								},
+								{
+									"key": "gewicht",
+									"value": "69",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update wiederholung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "datum",
+									"value": "01/01/2022",
+									"type": "text"
+								},
+								{
+									"key": "wiederholungUUID",
+									"value": "827c4a28-0497-4f3b-9ee5-fe6165701d05",
+									"type": "text"
+								},
+								{
+									"key": "anzahlWiederholungen",
+									"value": "31",
+									"type": "text"
+								},
+								{
+									"key": "gewicht",
+									"value": "31",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete wiederholung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d05",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"wiederholung",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "wiederholungUUID",
+									"value": "827c4a28-0497-4f3b-9ee5-fe6165701d05"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Uebung",
+			"item": [
+				{
+					"name": "list all uebungen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uebung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96794"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read uebung not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is undefined\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96790"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create uebung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uebungUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96705",
+									"type": "text"
+								},
+								{
+									"key": "wiederholungListe",
+									"value": "[64f71023-b909-4033-97d6-6132d586f771,827c4a28-0497-4f3b-9ee5-fe6165701d06]",
+									"type": "text"
+								},
+								{
+									"key": "uebungName",
+									"value": "Traktor",
+									"type": "text"
+								},
+								{
+									"key": "maschine",
+									"value": "a8eb64ff-9615-4cca-b154-cb5556836940",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update uebung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is application/json\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uebungUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96705",
+									"type": "text"
+								},
+								{
+									"key": "wiederholungListe",
+									"value": "[64f71023-b909-4033-97d6-6132d586f771,827c4a28-0497-4f3b-9ee5-fe6165701d06]",
+									"type": "text"
+								},
+								{
+									"key": "uebungName",
+									"value": "Panzer",
+									"type": "text"
+								},
+								{
+									"key": "maschine",
+									"value": "a8eb64ff-9615-4cca-b154-cb5556836940",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete uebung",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})",
+									"pm.test(\"Content-Type header is undefined\", () =>{",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f96705",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"GymStats-1.0",
+								"resource",
+								"uebung",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uebungUUID",
+									"value": "d795f4f1-77c6-4d3c-b71a-c04949f96705"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testservice",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "55ecf5a2-7d60-424b-a4ce-393ec28d0c5b",
 						"exec": [
 							"pm.test(\"Status code is 200\", function(){",
 							"    pm.response.to.have.status(200);",
@@ -43,390 +939,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "1.0 list all wiederholungen",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "713c75ac-2b30-4f52-b71c-4766ccd578f5",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"wiederholung",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.1 read wiederholung",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "1f825fee-d37d-4800-845a-4fd6afbce0b2",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is application/json\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d06",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"wiederholung",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "827c4a28-0497-4f3b-9ee5-fe6165701d06"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.2 read wiederholung not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "443f7840-84c2-4984-893e-2e54016623e9",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is undefined\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"wiederholung",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "827c4a28-0497-4f3b-9ee5-fe6165701d0"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.0 list all maschinen",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "8db7d47c-c3d7-487d-b11e-3638a4d56ad6",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is application/json\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"maschine",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.1 read maschine",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "f91c4601-b8e4-4256-88fd-7a416cbe648b",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is application/json\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"maschine",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "d795f4f1-77c6-4d3c-b71a-c04949f96794"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.2 read maschine not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b2c68a36-b154-4609-942c-99b48dc8f4a6",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is application/json\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"maschine",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "d795f4f1-77c6-4d3c-b71a-c04949f96790"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.0 list all uebungen",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "9053d310-8dab-4255-9fc5-be5da13b0dd0",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"uebung",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.1 read uebung",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "a996d7a0-a5f6-4b57-be76-ed629b662cc6",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is application/json\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"})"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"uebung",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "d795f4f1-77c6-4d3c-b71a-c04949f96794"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.2 read uebung not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "bbea83b9-812d-46e8-8979-6711975bfadd",
-						"exec": [
-							"pm.test(\"Status code is 200\", function(){",
-							"    pm.response.to.have.status(200);",
-							"})",
-							"pm.test(\"Content-Type header is undefined\", () =>{",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql(undefined);",
-							"})",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"GymStats-1.0",
-						"resource",
-						"uebung",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "d795f4f1-77c6-4d3c-b71a-c04949f96790"
-						}
-					]
-				}
-			},
-			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

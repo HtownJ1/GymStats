@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.Range;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.FormParam;
@@ -22,17 +20,16 @@ public class Wiederholung {
 
     @FormParam("anzahlWiederholungen")
     @NotNull
-    @Range(from = 1,to= 20)
+    //@Range(from = 1,to= 20)
     private Integer anzahlWiederholungen;
 
     @FormParam("gewicht")
     @NotNull
-    @Range(from = 1,to= 400)
+    //@Range(from = 1,to= 400)
     private Integer gewicht;
 
-    @JsonIgnore
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private Date datum;
+    @FormParam("datum")
+    private String datum;
 
     /**
      * zurückgibt wiederholungUUID
@@ -93,7 +90,7 @@ public class Wiederholung {
      *
      * @return Wert von datum
      */
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
@@ -102,7 +99,7 @@ public class Wiederholung {
      *
      * @param datum der Wert zu setzen
      */
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 }
