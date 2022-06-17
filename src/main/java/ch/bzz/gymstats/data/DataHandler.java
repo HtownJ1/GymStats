@@ -175,15 +175,29 @@ public class DataHandler {
         }
     }
 
+    /**
+     * inserts a new maschine into the maschineList
+     *
+     * @param maschine which has to be saved
+     */
     public  void insertMaschine(Maschine maschine) {
         getMaschineList().add(maschine);
         writeMaschineJSON();
     }
 
+    /**
+     * updates the maschineList
+     */
     public void updateMaschine() {
         writeMaschineJSON();
     }
 
+
+    /**
+     * deletes a maschine identified by the maschineUUID
+     * @param maschineUUID
+     * @return -
+     */
     public boolean deleteMaschine(String maschineUUID) {
         Maschine maschine = readMaschineByUUID(maschineUUID);
         if (maschine != null) {
@@ -195,15 +209,28 @@ public class DataHandler {
         }
     }
 
+    /**
+     * inserts a new wiederholung into the wiederholungList
+     *
+     * @param wiederholung which has to be saved
+     */
     public  void insertWiederholung(Wiederholung wiederholung) {
         getWiederholungList().add(wiederholung);
         writeWiederholungJSON();
     }
 
+    /**
+     * updates the wiederholungList
+     */
     public void updateWiederholung() {
         writeWiederholungJSON();
     }
 
+    /**
+     * deletes a wiederholung identified by the wiederholungUUID
+     * @param wiederholungUUID
+     * @return -
+     */
     public boolean deleteWiederholung(String wiederholungUUID) {
         Wiederholung wiederholung = readWiederholungByUUID(wiederholungUUID);
         if (wiederholung != null) {
@@ -215,15 +242,28 @@ public class DataHandler {
         }
     }
 
+    /**
+     * inserts a new uebung into the uebungList
+     *
+     * @param uebung which has to be saved
+     */
     public  void insertUebung(Uebung uebung) {
         getUebungList().add(uebung);
         writeUebungJSON();
     }
 
+    /**
+     * updates the publisherList
+     */
     public void updateUebung() {
         writeUebungJSON();
     }
 
+    /**
+     * deletes a uebung identified by the uebungUUID
+     * @param uebungUUID
+     * @return -
+     */
     public boolean deleteUebung(String uebungUUID) {
         Uebung uebung = readUebungByUUID(uebungUUID);
         if (uebung != null) {
@@ -235,6 +275,9 @@ public class DataHandler {
         }
     }
 
+    /**
+     * writes the wiederholungList to the JSON-File
+     */
     private void writeWiederholungJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -252,6 +295,9 @@ public class DataHandler {
     }
 
 
+    /**
+     * writes the maschineList to the JSON-File
+     */
     private void writeMaschineJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -268,6 +314,10 @@ public class DataHandler {
         }
     }
 
+
+    /**
+     * writes the uebungList to the JSON-File
+     */
     private void writeUebungJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());

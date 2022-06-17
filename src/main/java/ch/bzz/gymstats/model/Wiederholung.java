@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.Range;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.FormParam;
@@ -20,15 +22,18 @@ public class Wiederholung {
 
     @FormParam("anzahlWiederholungen")
     @NotNull
-    //@Range(from = 1,to= 20)
+    @Min(1)
+    @Max(30)
     private Integer anzahlWiederholungen;
 
     @FormParam("gewicht")
     @NotNull
-    //@Range(from = 1,to= 400)
+    @Min(1)
+    @Max(400)
     private Integer gewicht;
 
     @FormParam("datum")
+    @NotNull
     private String datum;
 
     /**

@@ -88,13 +88,13 @@ public class MaschineService {
             @Valid @BeanParam Maschine maschine
     ) {
         int httpStatus = 200;
-        Maschine oldMaschine = DataHandler.getInstance().readMaschineByUUID(maschine.getMaschineUUID());
-        if (maschine != null) {
+        if (DataHandler.getInstance().readMaschineByUUID(maschine.getMaschineUUID())!=null) {
+            Maschine oldMaschine = DataHandler.getInstance().readMaschineByUUID(maschine.getMaschineUUID());
             oldMaschine.setMuskel(maschine.getMuskel());
             oldMaschine.setName(maschine.getName());
             DataHandler.getInstance().updateMaschine();
         } else {
-            httpStatus = 410;
+            httpStatus = 404;
         }
         return Response
                 .status(httpStatus)
@@ -118,7 +118,7 @@ public class MaschineService {
     ) {
         int httpStatus = 200;
         if (!DataHandler.getInstance().deleteMaschine(maschineUUID)) {
-            httpStatus = 410;
+            httpStatus = 404;
         }
         return Response
                 .status(httpStatus)
