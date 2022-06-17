@@ -56,6 +56,12 @@ public class MaschineService {
                 .build();
     }
 
+    /**
+     * creates a maschine
+     *
+     * @param maschine
+     * @return -
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -69,6 +75,12 @@ public class MaschineService {
                 .build();
     }
 
+    /**
+     * updates a maschine identified by the uuid
+     *
+     * @param maschine
+     * @return -
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -90,6 +102,12 @@ public class MaschineService {
                 .build();
     }
 
+    /**
+     * deletes a maschine identified by the uuid
+     *
+     * @param maschineUUID
+     * @return -
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

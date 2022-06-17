@@ -58,6 +58,12 @@ public class WiederholungService {
                 .build();
     }
 
+    /**
+     * creates a wiederholung
+     *
+     * @param wiederholung
+     * @return -
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -71,6 +77,12 @@ public class WiederholungService {
                 .build();
     }
 
+    /**
+     * updates a wiederholung identified by the uuid
+     *
+     * @param wiederholung
+     * @return -
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -93,6 +105,12 @@ public class WiederholungService {
                 .build();
     }
 
+    /**
+     * deletes a wiederholung identified by the uuid
+     *
+     * @param wiederholungUUID
+     * @return -
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

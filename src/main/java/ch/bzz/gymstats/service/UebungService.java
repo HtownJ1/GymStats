@@ -55,6 +55,12 @@ public class UebungService {
                 .build();
     }
 
+    /**
+     * creates a uebung
+     *
+     * @param uebung
+     * @return -
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -71,6 +77,12 @@ public class UebungService {
                 .build();
     }
 
+    /**
+     * updates a uebung identfied by the uuid
+     *
+     * @param uebung, maschine
+     * @return -
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -96,6 +108,12 @@ public class UebungService {
                 .build();
     }
 
+    /**
+     * delets a uebung identfied by the uuid
+     *
+     * @param uebungUUID
+     * @return -
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
