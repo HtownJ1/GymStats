@@ -2,6 +2,7 @@ package ch.bzz.gymstats.data;
 
 import ch.bzz.gymstats.model.Maschine;
 import ch.bzz.gymstats.model.Uebung;
+import ch.bzz.gymstats.model.User;
 import ch.bzz.gymstats.model.Wiederholung;
 import ch.bzz.gymstats.service.Config;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -23,11 +24,15 @@ public class DataHandler {
     private List<Maschine> maschineList;
     private List<Wiederholung> wiederholungList;
     private List<Uebung> uebungList;
+    private List<User> userList;
+
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
+        setUserList(new ArrayList<>());
+        readUserJSON();
         setMaschineList(new ArrayList<>());
         readMaschineJSON();
         setWiederholungList(new ArrayList<>());
@@ -61,6 +66,15 @@ public class DataHandler {
      */
     public List<Uebung> readAllUebungen() {
         return getUebungList();
+    }
+
+    /**
+     * reads all User
+     *
+     * @return list of User
+     */
+    public List<User> readAllUser() {
+        return getUserList();
     }
 
     /**
@@ -207,6 +221,96 @@ public class DataHandler {
         } else {
             return false;
         }
+    }
+
+    /**
+     * reads the Users from the JSON-file
+     */
+    private void readUserJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("userJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the userList to the JSON-file
+     */
+    private void writeUserJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String pathToJson = Config.getProperty("userJSON");
+        try {
+            fileOutputStream = new FileOutputStream(pathToJson);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getUserList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * reads a User by its uuid
+     *
+     * @param userUUID
+     * @return the User
+     *
+     */
+    public User readUserByUUID(String userUUID) {
+        User user = null;
+        for (User entry : getUserList()) {
+            if (entry.getUserUUID().equals(userUUID)) {
+                user = entry;
+            }
+        }
+        return user;
+    }
+
+    /**
+     * inserts a new user into the userList
+     *
+     * @param user the user to be saved
+     *
+     */
+    public void insertUser(User user) {
+        getUserList().add(user);
+        writeUserJSON();
+    }
+
+    /**
+     * updates the userList
+     */
+    public void updateUser() {
+        writeUserJSON();
+    }
+
+    /**
+     * deletes a user identified by the UUID
+     *
+     * @param userUUID the key
+     * @return success = true/false
+     */
+    public boolean deleteUser(String userUUID) {
+        User user = readUserByUUID(userUUID);
+        if (user != null) {
+            getUserList().remove(user);
+            writeUserJSON();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -395,5 +499,23 @@ public class DataHandler {
      */
     public void setUebungList(List<Uebung> uebungList) {
         this.uebungList = uebungList;
+    }
+
+    /**
+     * zurückgibt userList
+     *
+     * @return Wert von userList
+     */
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    /**
+     * setzt userList
+     *
+     * @param userList der Wert zu setzen
+     */
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

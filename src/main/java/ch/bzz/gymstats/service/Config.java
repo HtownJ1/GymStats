@@ -31,6 +31,7 @@ public class Config extends Application {
         providers.add(MaschineService.class);
         providers.add(WiederholungService.class);
         providers.add(UebungService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
