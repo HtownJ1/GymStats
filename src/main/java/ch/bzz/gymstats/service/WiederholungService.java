@@ -4,6 +4,8 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Wiederholung;
 
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -23,6 +25,7 @@ public class WiederholungService {
      *
      * @return wiederholungen as JSON
      */
+    @DenyAll
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +43,7 @@ public class WiederholungService {
      * @param wiederholungUUID
      * @return wiederholung
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -61,6 +65,7 @@ public class WiederholungService {
      * @param wiederholung
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -80,6 +85,7 @@ public class WiederholungService {
      * @param wiederholung
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -108,6 +114,7 @@ public class WiederholungService {
      * @param wiederholungUUID
      * @return -
      */
+    @RolesAllowed({"admin"})
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

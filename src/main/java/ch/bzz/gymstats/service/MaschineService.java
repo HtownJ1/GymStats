@@ -4,6 +4,7 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Maschine;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -24,6 +25,7 @@ public class MaschineService {
      *
      * @return maschinen as JSON
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -41,6 +43,7 @@ public class MaschineService {
      * @param maschineUUID
      * @return maschine
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -62,6 +65,7 @@ public class MaschineService {
      * @param maschine
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -81,6 +85,7 @@ public class MaschineService {
      * @param maschine
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -108,6 +113,7 @@ public class MaschineService {
      * @param maschineUUID
      * @return -
      */
+    @RolesAllowed({"admin"})
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

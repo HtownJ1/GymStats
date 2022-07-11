@@ -4,6 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import java.util.List;
 
 /**
  * a user class
@@ -29,28 +30,24 @@ public class User {
     @Size(min = 3,max = 30)
     private String userRole;
 
+    @FormParam("words")
+    @NotEmpty
+    private List<String> words;
+
+
     /**
      * empty constructor
      */
     public User() {
     }
 
-    /**
-     * constructor
-     *
-     * @param userUUID userUUID of User
-     * @param userName userName of User
-     * @param password password of User
-     * @param userRole userRole of User
-     */
-    public User(String userUUID,
-                String userName,
-                String password,
-                String userRole) {
+
+    public User(String userUUID, String userName, String password, String userRole, List<String> words) {
         this.userUUID = userUUID;
         this.userName = userName;
         this.password = password;
         this.userRole = userRole;
+        this.words = words;
     }
 
     /**
@@ -137,5 +134,23 @@ public class User {
      */
     public void setUserRole(String userRole) {
         this.userRole = userRole;
+    }
+
+    /**
+     * zurückgibt words
+     *
+     * @return Wert von words
+     */
+    public List<String> getWords() {
+        return words;
+    }
+
+    /**
+     * setzt words
+     *
+     * @param words der Wert zu setzen
+     */
+    public void setWords(List<String> words) {
+        this.words = words;
     }
 }

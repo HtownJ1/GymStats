@@ -4,6 +4,7 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Uebung;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -23,6 +24,7 @@ public class UebungService {
      *
      * @return uebungen as JSON
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +42,7 @@ public class UebungService {
      * @param uebungUUID
      * @return uebung
      */
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -61,6 +64,7 @@ public class UebungService {
      * @param uebung
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
@@ -83,6 +87,7 @@ public class UebungService {
      * @param uebung, maschine
      * @return -
      */
+    @RolesAllowed({"admin", "user"})
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -114,6 +119,7 @@ public class UebungService {
      * @param uebungUUID
      * @return -
      */
+    @RolesAllowed({"admin"})
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)

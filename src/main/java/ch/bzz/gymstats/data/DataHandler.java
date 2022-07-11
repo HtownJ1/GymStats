@@ -224,6 +224,24 @@ public class DataHandler {
     }
 
     /**
+     * reads a user by the username/password provided
+     *
+     * @param username
+     * @param password
+     * @return user-object
+     */
+    public User readUserLogin(String username, String password) {
+        User user = new User();
+        for (User entry : getUserList()) {
+            if (entry.getUserName().equals(username) &&
+                    entry.getPassword().equals(password)) {
+                user = entry;
+            }
+        }
+        return user;
+    }
+
+    /**
      * reads the Users from the JSON-file
      */
     private void readUserJSON() {

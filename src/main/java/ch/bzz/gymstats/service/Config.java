@@ -1,5 +1,7 @@
 package ch.bzz.gymstats.service;
 
+import ch.bzz.gymstats.util.AuthorizationFilter;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;
@@ -32,6 +34,7 @@ public class Config extends Application {
         providers.add(WiederholungService.class);
         providers.add(UebungService.class);
         providers.add(UserService.class);
+        providers.add(AuthorizationFilter.class);
         return providers;
     }
 
