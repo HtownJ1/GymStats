@@ -4,7 +4,6 @@ package ch.bzz.gymstats.service;
 import ch.bzz.gymstats.data.DataHandler;
 import ch.bzz.gymstats.model.Wiederholung;
 
-import javax.annotation.security.DenyAll;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -25,7 +24,7 @@ public class WiederholungService {
      *
      * @return wiederholungen as JSON
      */
-    @DenyAll
+    @RolesAllowed({"admin", "user"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
