@@ -69,7 +69,6 @@ public class AuthorizationFilter implements javax.ws.rs.container.ContainerReque
         String role = "";
         String roleOutput;
 
-        if(headers.get(AUTHORIZATION_PROPERTY).get(0)==null) {
             role = headers.get(AUTHORIZATION_PROPERTY).get(0);
 
             if (!role.equals("")) {
@@ -79,10 +78,6 @@ public class AuthorizationFilter implements javax.ws.rs.container.ContainerReque
             } else {
                 roleOutput = "guest";
             }
-        }
-        else{
-            roleOutput="guest";
-        }
         return roleOutput;
     }
 }
