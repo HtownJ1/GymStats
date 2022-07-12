@@ -69,13 +69,17 @@ public class AuthorizationFilter implements javax.ws.rs.container.ContainerReque
         String role = "";
         String roleOutput;
 
-            role = headers.get(AUTHORIZATION_PROPERTY).get(0);
+            try {
+                role = headers.get(AUTHORIZATION_PROPERTY).get(0);
 
-            if (!role.equals("")) {
-                roleOutput = role
-                        .substring(0, role.indexOf(";"))
-                        .substring(role.indexOf("=") + 1);
-            } else {
+                if (!role.equals("")) {
+                    roleOutput = role
+                            .substring(0, role.indexOf(";"))
+                            .substring(role.indexOf("=") + 1);
+                } else {
+                    roleOutput = "guest";
+                }
+            }catch (Exception e){
                 roleOutput = "guest";
             }
         return roleOutput;
