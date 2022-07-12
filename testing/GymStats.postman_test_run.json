@@ -1,18 +1,36 @@
 {
-	"id": "4634558c-a533-4859-af46-ca2a6b6166b7",
+	"id": "74cbda07-0b3a-4b8f-b56e-6c8cfbeef4c0",
 	"name": "GymStats",
-	"timestamp": "2022-06-17T13:02:25.160Z",
+	"timestamp": "2022-07-12T08:26:45.097Z",
 	"collection_id": "2c4d3eef-46f9-422d-b376-c3f075b908bb",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 104,
+	"totalPass": 314,
 	"totalFail": 0,
 	"results": [
+		{
+			"id": "8dbab211-3b9a-4500-8008-e66d34b758ab",
+			"name": "admin login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 229,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				229
+			],
+			"allTests": [
+				{}
+			]
+		},
 		{
 			"id": "645f0b79-30eb-4e9d-9365-17c7ab5d93e2",
 			"name": "list all maschinen",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
-			"time": 33,
+			"time": 8,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +50,7 @@
 				}
 			},
 			"times": [
-				33
+				8
 			],
 			"allTests": [
 				{
@@ -45,7 +63,7 @@
 			"id": "a5673341-b528-4776-8286-24214ce1b876",
 			"name": "read maschine",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
-			"time": 10,
+			"time": 11,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -65,7 +83,7 @@
 				}
 			},
 			"times": [
-				10
+				11
 			],
 			"allTests": [
 				{
@@ -78,7 +96,7 @@
 			"id": "d92f1b43-2fef-44a6-a925-87134fe141e4",
 			"name": "read maschine not found",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
-			"time": 6,
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -98,7 +116,7 @@
 				}
 			},
 			"times": [
-				6
+				7
 			],
 			"allTests": [
 				{
@@ -111,7 +129,7 @@
 			"id": "3572f9ff-1607-4939-ad6d-96efdf3dd439",
 			"name": "create maschine",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
-			"time": 19,
+			"time": 9,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -131,7 +149,7 @@
 				}
 			},
 			"times": [
-				19
+				9
 			],
 			"allTests": [
 				{
@@ -143,39 +161,6 @@
 		{
 			"id": "ee064c47-1b24-41fe-b0a6-83200f1b034b",
 			"name": "create maschine uuid wrong",
-			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
-			"time": 15,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				15
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "aed73bb3-cd6a-4589-9b12-45096bf2e229",
-			"name": "create maschine name zu lang",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
 			"time": 7,
 			"responseCode": {
@@ -207,10 +192,10 @@
 			]
 		},
 		{
-			"id": "827a7302-6c26-41cb-a4a9-5bd8ca8d2bb9",
-			"name": "create maschine name zu kurz",
+			"id": "aed73bb3-cd6a-4589-9b12-45096bf2e229",
+			"name": "create maschine name zu lang",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
-			"time": 9,
+			"time": 10,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -230,7 +215,40 @@
 				}
 			},
 			"times": [
-				9
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "827a7302-6c26-41cb-a4a9-5bd8ca8d2bb9",
+			"name": "create maschine name zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
 			],
 			"allTests": [
 				{
@@ -243,7 +261,7 @@
 			"id": "d7885b45-8c9c-423e-91c6-1ef501ce251d",
 			"name": "create muskel zu kurz",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
-			"time": 706,
+			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -263,7 +281,7 @@
 				}
 			},
 			"times": [
-				706
+				4
 			],
 			"allTests": [
 				{
@@ -276,7 +294,7 @@
 			"id": "06594dc0-68fe-4146-8789-6eb16bc571de",
 			"name": "create maschine muskel zu lang",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
-			"time": 247,
+			"time": 7,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -296,7 +314,7 @@
 				}
 			},
 			"times": [
-				247
+				7
 			],
 			"allTests": [
 				{
@@ -309,7 +327,7 @@
 			"id": "54aeab03-e722-4965-ae26-950ca3533adc",
 			"name": "update maschine",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 25,
+			"time": 11,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -329,7 +347,7 @@
 				}
 			},
 			"times": [
-				25
+				11
 			],
 			"allTests": [
 				{
@@ -342,7 +360,7 @@
 			"id": "bf65f674-c3da-4cd3-a6cd-5cc0464ddb4a",
 			"name": "update maschine not existing",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 10,
+			"time": 8,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -362,7 +380,7 @@
 				}
 			},
 			"times": [
-				10
+				8
 			],
 			"allTests": [
 				{
@@ -375,7 +393,7 @@
 			"id": "bfbba200-e8f9-4eed-863f-664c038c6499",
 			"name": "update maschine name zu lang",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 12,
+			"time": 10,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -395,7 +413,7 @@
 				}
 			},
 			"times": [
-				12
+				10
 			],
 			"allTests": [
 				{
@@ -408,7 +426,7 @@
 			"id": "c48d6544-87bf-47c9-a074-1cc84dd03930",
 			"name": "update maschine name zu kurz",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 26,
+			"time": 7,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -428,7 +446,7 @@
 				}
 			},
 			"times": [
-				26
+				7
 			],
 			"allTests": [
 				{
@@ -441,7 +459,7 @@
 			"id": "55f464be-d4fe-4289-aa83-01648d933ba2",
 			"name": "update maschine muskel zu kurz",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 14,
+			"time": 6,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -461,7 +479,7 @@
 				}
 			},
 			"times": [
-				14
+				6
 			],
 			"allTests": [
 				{
@@ -473,6 +491,585 @@
 		{
 			"id": "a76dceb2-aced-4af8-8466-56e2750d252e",
 			"name": "update maschine muskel zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "c8588b1b-0ee3-4866-9661-22032cebe9fb",
+			"name": "update maschine uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "acf0e4db-4e83-442b-ab25-f9a19cde5905",
+			"name": "delete maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96798",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "826e54fa-37d3-437b-8115-dc1c10cdddf5",
+			"name": "delete maschine not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96700",
+			"time": 16,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "872cfbea-f4ea-4a0c-9293-12e5596f1e62",
+			"name": "user login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 295,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				295
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a07994bc-460c-4d51-a0de-24e0c8037c0b",
+			"name": "list all maschinen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "ecbecbc1-1afa-47ce-8107-0e5cbb479bba",
+			"name": "read maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "b9e5c301-edec-4ebf-afca-40425de7f61d",
+			"name": "read maschine not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		},
+		{
+			"id": "62e6af78-2808-4f87-bab1-6c6912d8a8bc",
+			"name": "create maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "43557caf-1493-49ee-bca8-106ad336a8a0",
+			"name": "create maschine uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "65dc01b7-2c2c-42dd-aab5-c9ca67786d4e",
+			"name": "create maschine name zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "515ce247-6bdb-4ca7-9d68-9fdcb2686109",
+			"name": "create maschine name zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 17,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "92703777-0188-4d9e-9af7-3a174c59bf76",
+			"name": "create muskel zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "722798f5-3f80-4fb7-83af-ac4d4f2c6bb3",
+			"name": "create maschine muskel zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 17,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "ec8df296-103f-46d2-b6b1-0ce7f98d4998",
+			"name": "update maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "32c24e59-e157-4306-95d2-48a905a5b870",
+			"name": "update maschine not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 11,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "6d5380d8-e27b-4e89-98c9-51ec1625647a",
+			"name": "update maschine name zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "73560d35-8279-46ba-ba74-b1ac39ab8dc1",
+			"name": "update maschine name zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "6cdb9fcf-8158-48db-8104-ff9a97f1163f",
+			"name": "update maschine muskel zu kurz",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
 			"time": 16,
 			"responseCode": {
@@ -504,10 +1101,10 @@
 			]
 		},
 		{
-			"id": "c8588b1b-0ee3-4866-9661-22032cebe9fb",
-			"name": "update maschine uuid wrong",
+			"id": "f118ea47-8031-4eda-953a-1629cd9e5a0e",
+			"name": "update maschine muskel zu lang",
 			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
-			"time": 29,
+			"time": 10,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -527,7 +1124,7 @@
 				}
 			},
 			"times": [
-				29
+				10
 			],
 			"allTests": [
 				{
@@ -537,53 +1134,53 @@
 			]
 		},
 		{
-			"id": "acf0e4db-4e83-442b-ab25-f9a19cde5905",
-			"name": "delete maschine",
-			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96798",
-			"time": 62,
+			"id": "214bb052-9584-4873-9635-968a89de6f2d",
+			"name": "update maschine uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 14,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status code is 200": true,
-				"Content-Type header is application/json": true
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
 			},
 			"testPassFailCounts": {
-				"Status code is 200": {
+				"Status code is 400": {
 					"pass": 1,
 					"fail": 0
 				},
-				"Content-Type header is application/json": {
+				"Content-Type header is text/html": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				62
+				14
 			],
 			"allTests": [
 				{
-					"Status code is 200": true,
-					"Content-Type header is application/json": true
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
 				}
 			]
 		},
 		{
-			"id": "826e54fa-37d3-437b-8115-dc1c10cdddf5",
-			"name": "delete maschine not existing",
-			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96700",
-			"time": 19,
+			"id": "c1661223-368c-482d-958e-1d1f93e5db66",
+			"name": "delete maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96798",
+			"time": 21,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 401,
+				"name": "Unauthorized"
 			},
 			"tests": {
-				"Status code is 200": true,
+				"Status code is 401": true,
 				"Content-Type header is text/plain": true
 			},
 			"testPassFailCounts": {
-				"Status code is 200": {
+				"Status code is 401": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -593,20 +1190,698 @@
 				}
 			},
 			"times": [
-				19
+				21
 			],
 			"allTests": [
 				{
-					"Status code is 200": true,
+					"Status code is 401": true,
 					"Content-Type header is text/plain": true
 				}
+			]
+		},
+		{
+			"id": "e8d92677-ca4f-4bdf-afdf-f9aeb0ef92d6",
+			"name": "delete maschine not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96700",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "4095af67-cc47-47b2-9e06-8993369bb269",
+			"name": "guest login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 9,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "82d7d7ef-c1f2-467b-9737-418015880c8a",
+			"name": "list all maschinen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/list",
+			"time": 14,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "429f0127-7073-45ea-aa48-81662ac9c7fc",
+			"name": "read maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 24,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "b50f1fe5-e131-4121-900d-6faab0d47928",
+			"name": "read maschine not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 11,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "2475bdb8-c461-4843-8aad-dde838d94a61",
+			"name": "create maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "7b1aa268-32fa-4f6f-849d-750312e361e3",
+			"name": "create maschine uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d6697477-0d90-4eca-a8e5-0e8ca02f33cf",
+			"name": "create maschine name zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "fd4fe09d-a101-45a5-b5c0-7641ca06871e",
+			"name": "create maschine name zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d6b16ab3-70ef-4601-be37-f4f75695b47d",
+			"name": "create muskel zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "a79b1d57-2a71-4785-85b5-808c04bf973e",
+			"name": "create maschine muskel zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/create",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "02c11ffa-69ec-4e77-bbba-f0839f65c0e4",
+			"name": "update maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "ed8edec5-d11a-4384-a916-4d9bc0e64918",
+			"name": "update maschine not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 15,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "202220af-49f1-44bd-83b9-dbac8087d502",
+			"name": "update maschine name zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3d6330fb-ae77-4aeb-a2b2-7814ed6b0e19",
+			"name": "update maschine name zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "0ffae193-64b7-4954-a520-13396044c9a8",
+			"name": "update maschine muskel zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "a4a88733-2ed5-4c01-b5e7-1e5a350eb998",
+			"name": "update maschine muskel zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "38297b01-57a0-4f89-acf2-640f61473359",
+			"name": "update maschine uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/update",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "fa6eb8f7-c59e-46a5-a68b-b87a773e9444",
+			"name": "delete maschine",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96798",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "89f4557c-cf36-427b-9a89-664183cb15c6",
+			"name": "delete maschine not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/maschine/delete?maschineUUID=d795f4f1-77c6-4d3c-b71a-c04949f96700",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "34b29d1e-ba0f-4872-bf7c-509c9aadf1d9",
+			"name": "admin login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 346,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				346
+			],
+			"allTests": [
+				{}
 			]
 		},
 		{
 			"id": "e38b7d25-13d5-4879-a2b3-1427b560ae49",
 			"name": "list all wiederholungen",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
-			"time": 13,
+			"time": 4,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -626,7 +1901,7 @@
 				}
 			},
 			"times": [
-				13
+				4
 			],
 			"allTests": [
 				{
@@ -639,7 +1914,7 @@
 			"id": "558c8aeb-326b-4305-8058-923f3544d0eb",
 			"name": "read wiederholung not found",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
-			"time": 24,
+			"time": 11,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -659,7 +1934,7 @@
 				}
 			},
 			"times": [
-				24
+				11
 			],
 			"allTests": [
 				{
@@ -705,7 +1980,7 @@
 			"id": "18c1b6ff-ee6d-45b6-aab3-ac801e08dedc",
 			"name": "create wiederholung",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 35,
+			"time": 14,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -725,7 +2000,7 @@
 				}
 			},
 			"times": [
-				35
+				14
 			],
 			"allTests": [
 				{
@@ -738,7 +2013,7 @@
 			"id": "fa92976f-606c-4bff-9b39-7c64d8bba4f2",
 			"name": "create wiederholung uuid wrong",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 30,
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -758,7 +2033,7 @@
 				}
 			},
 			"times": [
-				30
+				16
 			],
 			"allTests": [
 				{
@@ -771,7 +2046,7 @@
 			"id": "71de426a-10ec-4560-bf91-5ed6eede0dc6",
 			"name": "create wiederholung anzahl zu hoch",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 18,
+			"time": 8,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -791,7 +2066,7 @@
 				}
 			},
 			"times": [
-				18
+				8
 			],
 			"allTests": [
 				{
@@ -804,7 +2079,7 @@
 			"id": "eff0e6df-89c6-42da-a4a2-40820a5fc546",
 			"name": "create wiederholung anzahl zu tief",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 31,
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -824,7 +2099,7 @@
 				}
 			},
 			"times": [
-				31
+				9
 			],
 			"allTests": [
 				{
@@ -837,7 +2112,7 @@
 			"id": "f46cc8c8-eed3-4f11-b342-872486052621",
 			"name": "create wiederholung gewicht zu tief",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 23,
+			"time": 12,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -857,7 +2132,7 @@
 				}
 			},
 			"times": [
-				23
+				12
 			],
 			"allTests": [
 				{
@@ -870,7 +2145,7 @@
 			"id": "48a46ebc-54e4-4d42-bd3f-29468a423236",
 			"name": "create wiederholung gewicht zu hoch",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
-			"time": 30,
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -890,7 +2165,7 @@
 				}
 			},
 			"times": [
-				30
+				9
 			],
 			"allTests": [
 				{
@@ -903,7 +2178,7 @@
 			"id": "7b4145d3-2d5f-4a11-ba97-5ae7e4eb7565",
 			"name": "update wiederholung",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 61,
+			"time": 23,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -923,7 +2198,7 @@
 				}
 			},
 			"times": [
-				61
+				23
 			],
 			"allTests": [
 				{
@@ -936,7 +2211,7 @@
 			"id": "6d8965a0-e225-427b-a7fa-f30c4ef0ab23",
 			"name": "update wiederholung uuid wrong",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 22,
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -956,7 +2231,7 @@
 				}
 			},
 			"times": [
-				22
+				9
 			],
 			"allTests": [
 				{
@@ -969,7 +2244,7 @@
 			"id": "3d0e568f-bdd8-4893-8084-5e25d008ef04",
 			"name": "update wiederholung uuid not existing",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 39,
+			"time": 5,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -989,7 +2264,7 @@
 				}
 			},
 			"times": [
-				39
+				5
 			],
 			"allTests": [
 				{
@@ -1001,72 +2276,6 @@
 		{
 			"id": "7c0dc70c-81cc-4f51-b091-e6b9d4ecfd95",
 			"name": "update wiederholung anzahl zu hoch",
-			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 51,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				51
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "845e4d53-d340-441b-b6d2-389afffdffe9",
-			"name": "update wiederholung anzahl zu tief",
-			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 22,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				22
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "37b336cd-b66b-43ab-9b47-e86dae8de759",
-			"name": "update wiederholung gewicht zu tief",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
 			"time": 18,
 			"responseCode": {
@@ -1098,10 +2307,10 @@
 			]
 		},
 		{
-			"id": "d3968cb9-323a-4fd3-b502-357bb8c0c1f3",
-			"name": "update wiederholung gewicht zu hoch",
+			"id": "845e4d53-d340-441b-b6d2-389afffdffe9",
+			"name": "update wiederholung anzahl zu tief",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
-			"time": 13,
+			"time": 17,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1121,7 +2330,73 @@
 				}
 			},
 			"times": [
-				13
+				17
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "37b336cd-b66b-43ab-9b47-e86dae8de759",
+			"name": "update wiederholung gewicht zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "d3968cb9-323a-4fd3-b502-357bb8c0c1f3",
+			"name": "update wiederholung gewicht zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 61,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
 			],
 			"allTests": [
 				{
@@ -1134,7 +2409,7 @@
 			"id": "4a0b9179-3a2f-4877-86b5-beb4580e67fb",
 			"name": "delete wiederholung",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d05",
-			"time": 18,
+			"time": 16,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1154,7 +2429,7 @@
 				}
 			},
 			"times": [
-				18
+				16
 			],
 			"allTests": [
 				{
@@ -1167,6 +2442,90 @@
 			"id": "ebc7d3db-025e-4ea8-9069-3dddd5c19e9f",
 			"name": "delete wiederholung not existing",
 			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "b94493ff-606c-4b74-a12a-ab5753d62de4",
+			"name": "user login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 568,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				568
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2347be71-a9db-4f8e-9e4c-cbb18d71081b",
+			"name": "list all wiederholungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "a8e5aac0-3b7a-4d19-8eea-7ced9f62675d",
+			"name": "read wiederholung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
 			"time": 6,
 			"responseCode": {
 				"code": 400,
@@ -1197,75 +2556,9 @@
 			]
 		},
 		{
-			"id": "a067facc-2c5c-4570-a8ca-ea16023575a2",
-			"name": "list all uebungen",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
-			"time": 41,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Content-Type header is application/json": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is application/json": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				41
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Content-Type header is application/json": true
-				}
-			]
-		},
-		{
-			"id": "22f48fa4-d091-4661-8e66-119402961d65",
-			"name": "read uebung",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
-			"time": 23,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Content-Type header is application/json": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is application/json": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				23
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Content-Type header is application/json": true
-				}
-			]
-		},
-		{
-			"id": "af72b10e-1edc-44bd-9baf-ace5a408c312",
-			"name": "read uebung not found",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"id": "ebc312db-822e-435f-81fa-1b46c34e4ad3",
+			"name": "read wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d06",
 			"time": 14,
 			"responseCode": {
 				"code": 200,
@@ -1273,14 +2566,14 @@
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Content-Type header is undefined": true
+				"Content-Type header is application/json": true
 			},
 			"testPassFailCounts": {
 				"Status code is 200": {
 					"pass": 1,
 					"fail": 0
 				},
-				"Content-Type header is undefined": {
+				"Content-Type header is application/json": {
 					"pass": 1,
 					"fail": 0
 				}
@@ -1291,15 +2584,15 @@
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Content-Type header is undefined": true
+					"Content-Type header is application/json": true
 				}
 			]
 		},
 		{
-			"id": "0c2e5eb6-eaac-4c94-b7a6-6290f0cbf8d9",
-			"name": "create uebung",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
-			"time": 50,
+			"id": "d86a8829-48aa-4f41-b4d9-d73f52665410",
+			"name": "create wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 22,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1319,7 +2612,7 @@
 				}
 			},
 			"times": [
-				50
+				22
 			],
 			"allTests": [
 				{
@@ -1329,10 +2622,10 @@
 			]
 		},
 		{
-			"id": "b8871f13-7841-4690-894b-f8c64974092f",
-			"name": "create uebung uuid wrong",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
-			"time": 33,
+			"id": "9b3eaa41-4142-44a9-b638-01f2adc5c917",
+			"name": "create wiederholung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1352,7 +2645,7 @@
 				}
 			},
 			"times": [
-				33
+				4
 			],
 			"allTests": [
 				{
@@ -1362,10 +2655,10 @@
 			]
 		},
 		{
-			"id": "e64eaff7-2146-488b-b6e6-9f2db70847d1",
-			"name": "create uebung uuid not formal",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
-			"time": 36,
+			"id": "914caf7b-3cfa-40aa-8715-787138662ca7",
+			"name": "create wiederholung anzahl zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 26,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1385,7 +2678,7 @@
 				}
 			},
 			"times": [
-				36
+				26
 			],
 			"allTests": [
 				{
@@ -1395,10 +2688,10 @@
 			]
 		},
 		{
-			"id": "86242cb3-be77-4bac-88c6-87a029b97e78",
-			"name": "create uebung uebungName zu kurz",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
-			"time": 79,
+			"id": "147915da-abb9-4aed-8009-1519c42223f3",
+			"name": "create wiederholung anzahl zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 10,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1418,7 +2711,7 @@
 				}
 			},
 			"times": [
-				79
+				10
 			],
 			"allTests": [
 				{
@@ -1428,10 +2721,10 @@
 			]
 		},
 		{
-			"id": "b5de2377-5ccc-4aa9-8265-717529f2123a",
-			"name": "create uebung uebungName zu lang",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
-			"time": 36,
+			"id": "5c76974d-17b8-4c9d-8897-5601793a2e5f",
+			"name": "create wiederholung gewicht zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1451,7 +2744,7 @@
 				}
 			},
 			"times": [
-				36
+				9
 			],
 			"allTests": [
 				{
@@ -1461,10 +2754,43 @@
 			]
 		},
 		{
-			"id": "f8e02812-57c6-4a98-b964-4efcd588a9e2",
-			"name": "update uebung",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
-			"time": 25,
+			"id": "9b9ca10c-0b2f-41bf-85d6-d91d844d2aa5",
+			"name": "create wiederholung gewicht zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 22,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "34a9b0c8-6812-403d-8c31-bf3112411f2d",
+			"name": "update wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1484,7 +2810,7 @@
 				}
 			},
 			"times": [
-				25
+				7
 			],
 			"allTests": [
 				{
@@ -1494,10 +2820,10 @@
 			]
 		},
 		{
-			"id": "107fbdca-91c0-49e3-8c72-91a50ed8a0fa",
-			"name": "update uebung uebungName zu kurz",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
-			"time": 33,
+			"id": "2169fcfb-f4d9-4f29-9e60-6dbd3e2de392",
+			"name": "update wiederholung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 9,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1517,7 +2843,7 @@
 				}
 			},
 			"times": [
-				33
+				9
 			],
 			"allTests": [
 				{
@@ -1527,141 +2853,9 @@
 			]
 		},
 		{
-			"id": "34c2ba7b-a14e-42a3-a90f-b645a3d50547",
-			"name": "update uebung uebungName zu lang",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
-			"time": 53,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				53
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "6a6d9417-4ec6-4439-b8f3-c2b4e2d04a69",
-			"name": "update uebung uuid wrong",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
-			"time": 21,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				21
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "0853b63e-fd17-4ce0-9036-c6a6bc79ae32",
-			"name": "update uebung uuid not formal",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
-			"time": 15,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status code is 400": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				15
-			],
-			"allTests": [
-				{
-					"Status code is 400": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
-			"id": "10caded4-bab7-47c4-b7b4-fc4d66620e21",
-			"name": "delete uebung",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f96705",
-			"time": 56,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"Content-Type header is undefined": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is undefined": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				56
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"Content-Type header is undefined": true
-				}
-			]
-		},
-		{
-			"id": "1f1e6834-d766-4d73-bb89-ae6ef8fcf633",
-			"name": "delete uebung not existing",
-			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f9670",
+			"id": "d6a53c5e-e328-4eb7-8998-cec494c2a9ff",
+			"name": "update wiederholung uuid not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
 			"time": 13,
 			"responseCode": {
 				"code": 400,
@@ -1692,10 +2886,2389 @@
 			]
 		},
 		{
+			"id": "a6c78453-2d79-4ec7-a3cd-e87b0e015fd8",
+			"name": "update wiederholung anzahl zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "ef2d43f9-6138-4a34-92e3-de9941079a44",
+			"name": "update wiederholung anzahl zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "414647d3-fde0-47e1-a2be-ea16ef30d571",
+			"name": "update wiederholung gewicht zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "607e4015-cffa-47fc-9712-c21013e27071",
+			"name": "update wiederholung gewicht zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 42,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "3bb1f504-233f-4bcf-9cb8-1f294367581b",
+			"name": "delete wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d05",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "7ed02f9d-e4f9-43b9-a42b-459a82d9d7cc",
+			"name": "delete wiederholung not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+			"time": 13,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "4b7398f4-1eb3-4ab7-8f00-e2d7ad5e48e1",
+			"name": "guest login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 26,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "60850486-a832-418e-b9cb-7eaff1aaaa65",
+			"name": "list all wiederholungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/list",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "f182c772-8136-47bf-b870-246569418d9b",
+			"name": "read wiederholung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "10312391-606e-4f08-a68e-46fabc83b216",
+			"name": "read wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/read?uuid=827c4a28-0497-4f3b-9ee5-fe6165701d06",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "e52dfc65-2176-44c5-bffa-cd64378fb731",
+			"name": "create wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "5cd41fd0-03b9-4581-b37c-de267aeae868",
+			"name": "create wiederholung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 13,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "fd6c9600-04f2-4296-853b-ccd463b15b46",
+			"name": "create wiederholung anzahl zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 22,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "faee35f1-f813-4d04-9bb4-7851659c3ca4",
+			"name": "create wiederholung anzahl zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3e8bfd99-8569-41a6-ad9e-d295d11dcb53",
+			"name": "create wiederholung gewicht zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 3,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "0d5dccc0-ffaf-48bd-9d2f-bf01c4b3f33e",
+			"name": "create wiederholung gewicht zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/create",
+			"time": 14,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "10239c6e-e4fa-464a-b0bc-b79541fca405",
+			"name": "update wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 19,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "060a2a7e-4ba9-4ee3-8e4e-877f2ebe85b7",
+			"name": "update wiederholung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3e58ef36-eb82-413a-9f53-901dcb7dc132",
+			"name": "update wiederholung uuid not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3b3901d5-2fe5-43d9-bd8e-b9f3c8c6e8a3",
+			"name": "update wiederholung anzahl zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 26,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "bd012482-48a7-420f-a7f4-1a0bc03ac3ab",
+			"name": "update wiederholung anzahl zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 12,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "69eac1e4-ca41-49d5-88cf-43a19c78e8e9",
+			"name": "update wiederholung gewicht zu tief",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "216da910-ec78-4430-9808-6dd73a884939",
+			"name": "update wiederholung gewicht zu hoch",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/update",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "e1f166dc-d0d6-4f88-899f-29293a9d2a7e",
+			"name": "delete wiederholung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d05",
+			"time": 27,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "2596fd78-0a03-4a35-bafe-41e6d275697b",
+			"name": "delete wiederholung not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/wiederholung/delete?wiederholungUUID=827c4a28-0497-4f3b-9ee5-fe6165701d0",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "088858cf-803f-445e-b4aa-50597557c766",
+			"name": "admin login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 470,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				470
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a067facc-2c5c-4570-a8ca-ea16023575a2",
+			"name": "list all uebungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "22f48fa4-d091-4661-8e66-119402961d65",
+			"name": "read uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "af72b10e-1edc-44bd-9baf-ace5a408c312",
+			"name": "read uebung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		},
+		{
+			"id": "0c2e5eb6-eaac-4c94-b7a6-6290f0cbf8d9",
+			"name": "create uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "b8871f13-7841-4690-894b-f8c64974092f",
+			"name": "create uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "e64eaff7-2146-488b-b6e6-9f2db70847d1",
+			"name": "create uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "86242cb3-be77-4bac-88c6-87a029b97e78",
+			"name": "create uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "b5de2377-5ccc-4aa9-8265-717529f2123a",
+			"name": "create uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "f8e02812-57c6-4a98-b964-4efcd588a9e2",
+			"name": "update uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "107fbdca-91c0-49e3-8c72-91a50ed8a0fa",
+			"name": "update uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 25,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "34c2ba7b-a14e-42a3-a90f-b645a3d50547",
+			"name": "update uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "6a6d9417-4ec6-4439-b8f3-c2b4e2d04a69",
+			"name": "update uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "0853b63e-fd17-4ce0-9036-c6a6bc79ae32",
+			"name": "update uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 28,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				28
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "10caded4-bab7-47c4-b7b4-fc4d66620e21",
+			"name": "delete uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f96705",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		},
+		{
+			"id": "1f1e6834-d766-4d73-bb89-ae6ef8fcf633",
+			"name": "delete uebung not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f9670",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "0a2aadb5-1040-4493-b8fa-9df5abdcfcee",
+			"name": "user login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 579,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				579
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "57c19dc1-44aa-4487-8cab-7633c208a77d",
+			"name": "list all uebungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "e13ca6f5-00e9-4836-9380-20c0f8e85131",
+			"name": "read uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "4d8bb54c-0628-4acd-b34a-be3d555b53b3",
+			"name": "read uebung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is undefined": true
+				}
+			]
+		},
+		{
+			"id": "24f687cc-1c8b-41b2-bc36-fbd172a25276",
+			"name": "create uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "157c272e-f467-4fab-98ba-30dbde5971e1",
+			"name": "create uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "068f7146-697b-4979-ae8b-becf7328025d",
+			"name": "create uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 32,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "53a64397-cac9-4119-85bb-99c223870c60",
+			"name": "create uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "ae33306c-afe9-4d3a-9445-2dbfb60d6e2c",
+			"name": "create uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "e64823ce-e435-4bc3-b0b2-992a5c61a651",
+			"name": "update uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "00f6561d-b0d4-4933-acd2-e0a66ed39cac",
+			"name": "update uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "e1311c3e-f163-47ed-a720-f3113ba037f6",
+			"name": "update uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 31,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "bfea4b04-071f-4bb7-8472-afdaa0951d47",
+			"name": "update uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "e8e10a7b-170f-4cf5-944b-2f05907239f4",
+			"name": "update uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "c1ca5470-b645-4058-a25e-7844e40a62d2",
+			"name": "delete uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f96705",
+			"time": 9,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "a9b901bd-28c1-4fe4-b6da-1e16c199eb82",
+			"name": "delete uebung not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f9670",
+			"time": 5,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "6c16f9bc-ee85-48ae-9eb0-123a78c4cecd",
+			"name": "guest login",
+			"url": "http://localhost:8080/GymStats-1.0/resource/user/login",
+			"time": 13,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "d8a03be3-2681-4b24-a560-e4348c5cac0b",
+			"name": "list all uebungen",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/list",
+			"time": 10,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "0ff3a574-14d6-4601-aaf9-dc54ddeb1d4d",
+			"name": "read uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96794",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "c33d04aa-039f-44e2-9e2a-3c76279d13f5",
+			"name": "read uebung not found",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/read?uuid=d795f4f1-77c6-4d3c-b71a-c04949f96790",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "ce8911f6-6370-4372-8624-cc21ee73ff96",
+			"name": "create uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 15,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "1fcbc13f-74a0-4696-bd3b-5db7226854db",
+			"name": "create uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "766a945f-a46f-44bd-b751-818034f30633",
+			"name": "create uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "14a5a251-8dd0-4616-99a2-56ae3f3080b1",
+			"name": "create uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 8,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "b32afed1-3e3d-49f5-8ff8-7ea7b7b49a18",
+			"name": "create uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/create",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "924fa435-3621-4593-8618-171b57215833",
+			"name": "update uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d9164905-b873-4388-955e-295035beb71e",
+			"name": "update uebung uebungName zu kurz",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "98a9f6c2-57a9-43c9-87f2-7eb5186b3e15",
+			"name": "update uebung uebungName zu lang",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "f0b5f09e-7051-4447-bc97-cb1d794ef5e4",
+			"name": "update uebung uuid wrong",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 3,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "7e52a3d9-50a9-4cb6-abc7-64f751860157",
+			"name": "update uebung uuid not formal",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/update",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "04df7cc0-ba30-48b8-9f15-e288004d7ffb",
+			"name": "delete uebung",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f96705",
+			"time": 6,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "eba81a32-8e73-4504-8559-67154a53709d",
+			"name": "delete uebung not existing",
+			"url": "http://localhost:8080/GymStats-1.0/resource/uebung/delete?uebungUUID=d795f4f1-77c6-4d3c-b71a-c04949f9670",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 401": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
 			"id": "1054b38c-02af-4224-ad6c-3a782e57128a",
 			"name": "Testservice",
 			"url": "http://localhost:8080/GymStats-1.0/resource/test/test",
-			"time": 15,
+			"time": 8,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1715,7 +5288,7 @@
 				}
 			},
 			"times": [
-				15
+				8
 			],
 			"allTests": [
 				{
@@ -1726,9 +5299,13 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 2272,
+	"totalTime": 4276,
 	"collection": {
 		"requests": [
+			{
+				"id": "8dbab211-3b9a-4500-8008-e66d34b758ab",
+				"method": "POST"
+			},
 			{
 				"id": "645f0b79-30eb-4e9d-9365-17c7ab5d93e2",
 				"method": "GET"
@@ -1800,6 +5377,162 @@
 			{
 				"id": "826e54fa-37d3-437b-8115-dc1c10cdddf5",
 				"method": "DELETE"
+			},
+			{
+				"id": "872cfbea-f4ea-4a0c-9293-12e5596f1e62",
+				"method": "POST"
+			},
+			{
+				"id": "a07994bc-460c-4d51-a0de-24e0c8037c0b",
+				"method": "GET"
+			},
+			{
+				"id": "ecbecbc1-1afa-47ce-8107-0e5cbb479bba",
+				"method": "GET"
+			},
+			{
+				"id": "b9e5c301-edec-4ebf-afca-40425de7f61d",
+				"method": "GET"
+			},
+			{
+				"id": "62e6af78-2808-4f87-bab1-6c6912d8a8bc",
+				"method": "POST"
+			},
+			{
+				"id": "43557caf-1493-49ee-bca8-106ad336a8a0",
+				"method": "POST"
+			},
+			{
+				"id": "65dc01b7-2c2c-42dd-aab5-c9ca67786d4e",
+				"method": "POST"
+			},
+			{
+				"id": "515ce247-6bdb-4ca7-9d68-9fdcb2686109",
+				"method": "POST"
+			},
+			{
+				"id": "92703777-0188-4d9e-9af7-3a174c59bf76",
+				"method": "POST"
+			},
+			{
+				"id": "722798f5-3f80-4fb7-83af-ac4d4f2c6bb3",
+				"method": "POST"
+			},
+			{
+				"id": "ec8df296-103f-46d2-b6b1-0ce7f98d4998",
+				"method": "PUT"
+			},
+			{
+				"id": "32c24e59-e157-4306-95d2-48a905a5b870",
+				"method": "PUT"
+			},
+			{
+				"id": "6d5380d8-e27b-4e89-98c9-51ec1625647a",
+				"method": "PUT"
+			},
+			{
+				"id": "73560d35-8279-46ba-ba74-b1ac39ab8dc1",
+				"method": "PUT"
+			},
+			{
+				"id": "6cdb9fcf-8158-48db-8104-ff9a97f1163f",
+				"method": "PUT"
+			},
+			{
+				"id": "f118ea47-8031-4eda-953a-1629cd9e5a0e",
+				"method": "PUT"
+			},
+			{
+				"id": "214bb052-9584-4873-9635-968a89de6f2d",
+				"method": "PUT"
+			},
+			{
+				"id": "c1661223-368c-482d-958e-1d1f93e5db66",
+				"method": "DELETE"
+			},
+			{
+				"id": "e8d92677-ca4f-4bdf-afdf-f9aeb0ef92d6",
+				"method": "DELETE"
+			},
+			{
+				"id": "4095af67-cc47-47b2-9e06-8993369bb269",
+				"method": "POST"
+			},
+			{
+				"id": "82d7d7ef-c1f2-467b-9737-418015880c8a",
+				"method": "GET"
+			},
+			{
+				"id": "429f0127-7073-45ea-aa48-81662ac9c7fc",
+				"method": "GET"
+			},
+			{
+				"id": "b50f1fe5-e131-4121-900d-6faab0d47928",
+				"method": "GET"
+			},
+			{
+				"id": "2475bdb8-c461-4843-8aad-dde838d94a61",
+				"method": "POST"
+			},
+			{
+				"id": "7b1aa268-32fa-4f6f-849d-750312e361e3",
+				"method": "POST"
+			},
+			{
+				"id": "d6697477-0d90-4eca-a8e5-0e8ca02f33cf",
+				"method": "POST"
+			},
+			{
+				"id": "fd4fe09d-a101-45a5-b5c0-7641ca06871e",
+				"method": "POST"
+			},
+			{
+				"id": "d6b16ab3-70ef-4601-be37-f4f75695b47d",
+				"method": "POST"
+			},
+			{
+				"id": "a79b1d57-2a71-4785-85b5-808c04bf973e",
+				"method": "POST"
+			},
+			{
+				"id": "02c11ffa-69ec-4e77-bbba-f0839f65c0e4",
+				"method": "PUT"
+			},
+			{
+				"id": "ed8edec5-d11a-4384-a916-4d9bc0e64918",
+				"method": "PUT"
+			},
+			{
+				"id": "202220af-49f1-44bd-83b9-dbac8087d502",
+				"method": "PUT"
+			},
+			{
+				"id": "3d6330fb-ae77-4aeb-a2b2-7814ed6b0e19",
+				"method": "PUT"
+			},
+			{
+				"id": "0ffae193-64b7-4954-a520-13396044c9a8",
+				"method": "PUT"
+			},
+			{
+				"id": "a4a88733-2ed5-4c01-b5e7-1e5a350eb998",
+				"method": "PUT"
+			},
+			{
+				"id": "38297b01-57a0-4f89-acf2-640f61473359",
+				"method": "PUT"
+			},
+			{
+				"id": "fa6eb8f7-c59e-46a5-a68b-b87a773e9444",
+				"method": "DELETE"
+			},
+			{
+				"id": "89f4557c-cf36-427b-9a89-664183cb15c6",
+				"method": "DELETE"
+			},
+			{
+				"id": "34b29d1e-ba0f-4872-bf7c-509c9aadf1d9",
+				"method": "POST"
 			},
 			{
 				"id": "e38b7d25-13d5-4879-a2b3-1427b560ae49",
@@ -1874,6 +5607,162 @@
 				"method": "DELETE"
 			},
 			{
+				"id": "b94493ff-606c-4b74-a12a-ab5753d62de4",
+				"method": "POST"
+			},
+			{
+				"id": "2347be71-a9db-4f8e-9e4c-cbb18d71081b",
+				"method": "GET"
+			},
+			{
+				"id": "a8e5aac0-3b7a-4d19-8eea-7ced9f62675d",
+				"method": "GET"
+			},
+			{
+				"id": "ebc312db-822e-435f-81fa-1b46c34e4ad3",
+				"method": "GET"
+			},
+			{
+				"id": "d86a8829-48aa-4f41-b4d9-d73f52665410",
+				"method": "POST"
+			},
+			{
+				"id": "9b3eaa41-4142-44a9-b638-01f2adc5c917",
+				"method": "POST"
+			},
+			{
+				"id": "914caf7b-3cfa-40aa-8715-787138662ca7",
+				"method": "POST"
+			},
+			{
+				"id": "147915da-abb9-4aed-8009-1519c42223f3",
+				"method": "POST"
+			},
+			{
+				"id": "5c76974d-17b8-4c9d-8897-5601793a2e5f",
+				"method": "POST"
+			},
+			{
+				"id": "9b9ca10c-0b2f-41bf-85d6-d91d844d2aa5",
+				"method": "POST"
+			},
+			{
+				"id": "34a9b0c8-6812-403d-8c31-bf3112411f2d",
+				"method": "PUT"
+			},
+			{
+				"id": "2169fcfb-f4d9-4f29-9e60-6dbd3e2de392",
+				"method": "PUT"
+			},
+			{
+				"id": "d6a53c5e-e328-4eb7-8998-cec494c2a9ff",
+				"method": "PUT"
+			},
+			{
+				"id": "a6c78453-2d79-4ec7-a3cd-e87b0e015fd8",
+				"method": "PUT"
+			},
+			{
+				"id": "ef2d43f9-6138-4a34-92e3-de9941079a44",
+				"method": "PUT"
+			},
+			{
+				"id": "414647d3-fde0-47e1-a2be-ea16ef30d571",
+				"method": "PUT"
+			},
+			{
+				"id": "607e4015-cffa-47fc-9712-c21013e27071",
+				"method": "PUT"
+			},
+			{
+				"id": "3bb1f504-233f-4bcf-9cb8-1f294367581b",
+				"method": "DELETE"
+			},
+			{
+				"id": "7ed02f9d-e4f9-43b9-a42b-459a82d9d7cc",
+				"method": "DELETE"
+			},
+			{
+				"id": "4b7398f4-1eb3-4ab7-8f00-e2d7ad5e48e1",
+				"method": "POST"
+			},
+			{
+				"id": "60850486-a832-418e-b9cb-7eaff1aaaa65",
+				"method": "GET"
+			},
+			{
+				"id": "f182c772-8136-47bf-b870-246569418d9b",
+				"method": "GET"
+			},
+			{
+				"id": "10312391-606e-4f08-a68e-46fabc83b216",
+				"method": "GET"
+			},
+			{
+				"id": "e52dfc65-2176-44c5-bffa-cd64378fb731",
+				"method": "POST"
+			},
+			{
+				"id": "5cd41fd0-03b9-4581-b37c-de267aeae868",
+				"method": "POST"
+			},
+			{
+				"id": "fd6c9600-04f2-4296-853b-ccd463b15b46",
+				"method": "POST"
+			},
+			{
+				"id": "faee35f1-f813-4d04-9bb4-7851659c3ca4",
+				"method": "POST"
+			},
+			{
+				"id": "3e8bfd99-8569-41a6-ad9e-d295d11dcb53",
+				"method": "POST"
+			},
+			{
+				"id": "0d5dccc0-ffaf-48bd-9d2f-bf01c4b3f33e",
+				"method": "POST"
+			},
+			{
+				"id": "10239c6e-e4fa-464a-b0bc-b79541fca405",
+				"method": "PUT"
+			},
+			{
+				"id": "060a2a7e-4ba9-4ee3-8e4e-877f2ebe85b7",
+				"method": "PUT"
+			},
+			{
+				"id": "3e58ef36-eb82-413a-9f53-901dcb7dc132",
+				"method": "PUT"
+			},
+			{
+				"id": "3b3901d5-2fe5-43d9-bd8e-b9f3c8c6e8a3",
+				"method": "PUT"
+			},
+			{
+				"id": "bd012482-48a7-420f-a7f4-1a0bc03ac3ab",
+				"method": "PUT"
+			},
+			{
+				"id": "69eac1e4-ca41-49d5-88cf-43a19c78e8e9",
+				"method": "PUT"
+			},
+			{
+				"id": "216da910-ec78-4430-9808-6dd73a884939",
+				"method": "PUT"
+			},
+			{
+				"id": "e1f166dc-d0d6-4f88-899f-29293a9d2a7e",
+				"method": "DELETE"
+			},
+			{
+				"id": "2596fd78-0a03-4a35-bafe-41e6d275697b",
+				"method": "DELETE"
+			},
+			{
+				"id": "088858cf-803f-445e-b4aa-50597557c766",
+				"method": "POST"
+			},
+			{
 				"id": "a067facc-2c5c-4570-a8ca-ea16023575a2",
 				"method": "GET"
 			},
@@ -1931,6 +5820,134 @@
 			},
 			{
 				"id": "1f1e6834-d766-4d73-bb89-ae6ef8fcf633",
+				"method": "DELETE"
+			},
+			{
+				"id": "0a2aadb5-1040-4493-b8fa-9df5abdcfcee",
+				"method": "POST"
+			},
+			{
+				"id": "57c19dc1-44aa-4487-8cab-7633c208a77d",
+				"method": "GET"
+			},
+			{
+				"id": "e13ca6f5-00e9-4836-9380-20c0f8e85131",
+				"method": "GET"
+			},
+			{
+				"id": "4d8bb54c-0628-4acd-b34a-be3d555b53b3",
+				"method": "GET"
+			},
+			{
+				"id": "24f687cc-1c8b-41b2-bc36-fbd172a25276",
+				"method": "POST"
+			},
+			{
+				"id": "157c272e-f467-4fab-98ba-30dbde5971e1",
+				"method": "POST"
+			},
+			{
+				"id": "068f7146-697b-4979-ae8b-becf7328025d",
+				"method": "POST"
+			},
+			{
+				"id": "53a64397-cac9-4119-85bb-99c223870c60",
+				"method": "POST"
+			},
+			{
+				"id": "ae33306c-afe9-4d3a-9445-2dbfb60d6e2c",
+				"method": "POST"
+			},
+			{
+				"id": "e64823ce-e435-4bc3-b0b2-992a5c61a651",
+				"method": "PUT"
+			},
+			{
+				"id": "00f6561d-b0d4-4933-acd2-e0a66ed39cac",
+				"method": "PUT"
+			},
+			{
+				"id": "e1311c3e-f163-47ed-a720-f3113ba037f6",
+				"method": "PUT"
+			},
+			{
+				"id": "bfea4b04-071f-4bb7-8472-afdaa0951d47",
+				"method": "PUT"
+			},
+			{
+				"id": "e8e10a7b-170f-4cf5-944b-2f05907239f4",
+				"method": "PUT"
+			},
+			{
+				"id": "c1ca5470-b645-4058-a25e-7844e40a62d2",
+				"method": "DELETE"
+			},
+			{
+				"id": "a9b901bd-28c1-4fe4-b6da-1e16c199eb82",
+				"method": "DELETE"
+			},
+			{
+				"id": "6c16f9bc-ee85-48ae-9eb0-123a78c4cecd",
+				"method": "POST"
+			},
+			{
+				"id": "d8a03be3-2681-4b24-a560-e4348c5cac0b",
+				"method": "GET"
+			},
+			{
+				"id": "0ff3a574-14d6-4601-aaf9-dc54ddeb1d4d",
+				"method": "GET"
+			},
+			{
+				"id": "c33d04aa-039f-44e2-9e2a-3c76279d13f5",
+				"method": "GET"
+			},
+			{
+				"id": "ce8911f6-6370-4372-8624-cc21ee73ff96",
+				"method": "POST"
+			},
+			{
+				"id": "1fcbc13f-74a0-4696-bd3b-5db7226854db",
+				"method": "POST"
+			},
+			{
+				"id": "766a945f-a46f-44bd-b751-818034f30633",
+				"method": "POST"
+			},
+			{
+				"id": "14a5a251-8dd0-4616-99a2-56ae3f3080b1",
+				"method": "POST"
+			},
+			{
+				"id": "b32afed1-3e3d-49f5-8ff8-7ea7b7b49a18",
+				"method": "POST"
+			},
+			{
+				"id": "924fa435-3621-4593-8618-171b57215833",
+				"method": "PUT"
+			},
+			{
+				"id": "d9164905-b873-4388-955e-295035beb71e",
+				"method": "PUT"
+			},
+			{
+				"id": "98a9f6c2-57a9-43c9-87f2-7eb5186b3e15",
+				"method": "PUT"
+			},
+			{
+				"id": "f0b5f09e-7051-4447-bc97-cb1d794ef5e4",
+				"method": "PUT"
+			},
+			{
+				"id": "7e52a3d9-50a9-4cb6-abc7-64f751860157",
+				"method": "PUT"
+			},
+			{
+				"id": "04df7cc0-ba30-48b8-9f15-e288004d7ffb",
+				"method": "DELETE"
+			},
+			{
+				"id": "eba81a32-8e73-4504-8559-67154a53709d",
 				"method": "DELETE"
 			},
 			{
